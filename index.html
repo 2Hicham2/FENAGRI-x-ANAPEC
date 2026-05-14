@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ANAPEC × FENAGRI — Ouverture du Contrat aux non diplômés</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #0a5c3e;
+    --green: #137a4f;
+    --green-light: #e6f2ec;
+    --red: #c1272d;
+    --gold: #d4a93a;
+    --cream: #faf7f0;
+    --ink: #1a2e25;
+    --gray: #6b7770;
+    --border: #e0d9c8;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    background: var(--white);
+    border-bottom: 3px solid var(--green-deep);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .brand-block {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .brand-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    color: white;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+  }
+  .brand-logo-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .brand-logo.anapec {
+    background: linear-gradient(135deg, var(--green-deep), var(--green));
+  }
+
+  .brand-logo.fenagri {
+    background: linear-gradient(135deg, var(--gold), #b8902c);
+  }
+
+  .brand-info .name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+
+  .brand-info .sub {
+    font-size: 0.7rem;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 2px;
+  }
+
+  .brand-divider {
+    width: 1px;
+    height: 32px;
+    background: var(--border);
+  }
+
+  /* Language toggle */
+  .lang-toggle {
+    display: flex;
+    background: var(--green-light);
+    border-radius: 999px;
+    padding: 4px;
+    gap: 2px;
+  }
+
+  .lang-toggle button {
+    background: transparent;
+    border: none;
+    padding: 0.5rem 1.1rem;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--green-deep);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.25s;
+  }
+
+  .lang-toggle button.active {
+    background: var(--green-deep);
+    color: white;
+    box-shadow: 0 2px 6px rgba(10, 92, 62, 0.25);
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    padding: 4rem 2rem 3rem;
+    text-align: center;
+    background:
+      radial-gradient(ellipse at top, rgba(19, 122, 79, 0.08) 0%, transparent 60%),
+      var(--cream);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 100%;
+    background-image:
+      radial-gradient(circle at 15% 30%, rgba(212, 169, 58, 0.06) 0%, transparent 25%),
+      radial-gradient(circle at 85% 70%, rgba(193, 39, 45, 0.04) 0%, transparent 30%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: white;
+    border: 1px solid var(--border);
+    padding: 0.5rem 1.1rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--green-deep);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--red);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.3); }
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.2rem;
+    color: var(--ink);
+  }
+
+  .hero h1 em {
+    color: var(--green-deep);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--gray);
+    max-width: 640px;
+    margin: 0 auto 2rem;
+  }
+
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px dashed var(--border);
+  }
+
+  .meta-item {
+    text-align: center;
+  }
+
+  .meta-item .label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gray);
+    margin-bottom: 0.4rem;
+  }
+
+  .meta-item .value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--green-deep);
+    font-weight: 600;
+  }
+
+  /* ===== FORM SECTION ===== */
+  .form-section {
+    padding: 3rem 2rem 5rem;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .form-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow:
+      0 1px 3px rgba(0,0,0,0.04),
+      0 12px 40px rgba(10, 92, 62, 0.08);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  /* Step indicator */
+  .stepper {
+    display: flex;
+    background: linear-gradient(135deg, var(--green-deep), var(--green));
+    padding: 1.5rem 2rem;
+    gap: 1rem;
+    color: white;
+  }
+
+  .step {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    opacity: 0.55;
+    transition: opacity 0.3s;
+  }
+
+  .step.active {
+    opacity: 1;
+  }
+
+  .step.completed {
+    opacity: 0.85;
+  }
+
+  .step-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border: 2px solid rgba(255,255,255,0.3);
+    flex-shrink: 0;
+    transition: all 0.3s;
+  }
+
+  .step.active .step-num {
+    background: white;
+    color: var(--green-deep);
+    border-color: white;
+  }
+
+  .step.completed .step-num {
+    background: var(--gold);
+    color: var(--ink);
+    border-color: var(--gold);
+  }
+
+  .step-info .step-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+  }
+
+  .step-info .step-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: 2px;
+  }
+
+  /* Form body */
+  .form-body {
+    padding: 2.5rem;
+  }
+
+  .form-page {
+    display: none;
+    animation: fadeIn 0.4s ease;
+  }
+
+  .form-page.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .form-page h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+
+  .form-page .page-desc {
+    color: var(--gray);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .field.full {
+    grid-column: 1 / -1;
+  }
+
+  .field label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+  }
+
+  .field label .req {
+    color: var(--red);
+    margin-left: 2px;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 0.85rem 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    background: var(--cream);
+    color: var(--ink);
+    transition: all 0.2s;
+    width: 100%;
+  }
+
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--green);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(19, 122, 79, 0.1);
+  }
+
+  .field select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236b7770' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+  }
+
+  /* Radio buttons */
+  .radio-group {
+    display: flex;
+    gap: 0.8rem;
+  }
+
+  .radio-option {
+    flex: 1;
+    position: relative;
+  }
+
+  .radio-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .radio-option label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1rem;
+    background: var(--cream);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: none;
+    letter-spacing: normal;
+    color: var(--gray);
+    margin: 0;
+    transition: all 0.2s;
+  }
+
+  .radio-option label::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    background: white;
+    transition: all 0.2s;
+  }
+
+  .radio-option input[type="radio"]:checked + label {
+    border-color: var(--green);
+    background: var(--green-light);
+    color: var(--green-deep);
+  }
+
+  .radio-option input[type="radio"]:checked + label::before {
+    border-color: var(--green-deep);
+    background: var(--green-deep);
+    box-shadow: inset 0 0 0 3px white;
+  }
+
+  /* Form actions */
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    gap: 1rem;
+  }
+
+  .btn {
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.9rem 1.8rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--green-deep), var(--green));
+    color: white;
+    box-shadow: 0 4px 12px rgba(10, 92, 62, 0.25);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(10, 92, 62, 0.35);
+  }
+
+  .btn-secondary {
+    background: var(--cream);
+    color: var(--ink);
+    border: 1.5px solid var(--border);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--green);
+    color: var(--green-deep);
+  }
+
+  .btn-spacer { flex: 1; }
+
+  /* Success state */
+  .success-state {
+    text-align: center;
+    padding: 2rem 0;
+  }
+
+  .success-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: var(--green-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: scaleIn 0.5s ease;
+  }
+
+  @keyframes scaleIn {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+  }
+
+  .success-icon svg {
+    width: 40px;
+    height: 40px;
+    stroke: var(--green-deep);
+    stroke-width: 3;
+  }
+
+  .success-state h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--ink);
+    margin-bottom: 0.8rem;
+  }
+
+  .success-state p {
+    color: var(--gray);
+    max-width: 480px;
+    margin: 0 auto 2rem;
+  }
+
+  /* ===== INFO STRIP ===== */
+  .info-strip {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+  }
+
+  .info-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .info-item {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .info-item .icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 1rem;
+    background: var(--green-light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+  }
+
+  .info-item h4 {
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
+  }
+
+  .info-item p {
+    color: var(--gray);
+    font-size: 0.9rem;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.7);
+    padding: 3rem 2rem 1.5rem;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .footer-block h5 {
+    color: white;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 1rem;
+  }
+
+  .footer-block p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .footer-block a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .footer-block a:hover { text-decoration: underline; }
+
+  .footer-bottom {
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* Responsive */
+  @media (max-width: 720px) {
+    .header-inner { flex-direction: column; gap: 1rem; }
+    .brand-block { flex-wrap: wrap; justify-content: center; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-body { padding: 1.5rem; }
+    .stepper { padding: 1rem; gap: 0.5rem; }
+    .step-info .step-label { display: none; }
+    .step-info .step-title { font-size: 0.8rem; }
+    .info-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    .hero { padding: 2.5rem 1.5rem 2rem; }
+    .form-actions { flex-direction: column-reverse; }
+    .btn { width: 100%; justify-content: center; }
+    .btn-spacer { display: none; }
+    .brand-logo-img{height: 40px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="brand-block">
+      <div class="brand">
+        <img src="AN7BsVCmQ0y4SSzyr7k3nXLv7iOK0jQQ-_PiNq4xeOHFQV3Xb5rSTdFyY7qJ8z-AHcXX9KrgCK2WNowGUI6jlFl2HRvCWPud-e4eYlY45HO9luZCqP6TOODaRc31A9DSbsuyw6aAav2ZxGL7ho5Wavj3NZ4AFxN-AkUfNfgIiqUq3rkfjkkXgXS91kRdRbmzBtXHA6fQ1gNjS8jfFI49=w200" alt="Logo ANAPEC" class="brand-logo-img">
+        <div class="brand-info">
+          <div class="name">ANAPEC</div>
+          <div class="sub" data-fr="Agence Nationale" data-en="National Agency">Agence Nationale</div>
+        </div>
+      </div>
+      <div class="brand-divider"></div>
+      <div class="brand">
+        <img src="FENAGRILOGO-BDLHWw3m.png" alt="Logo FENAGRI" class="brand-logo-img">
+        <div class="brand-info">
+          <div class="name">FENAGRI</div>
+          <div class="sub" data-fr="Agro-alimentaire" data-en="Agri-food">Agro-alimentaire</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lang-toggle">
+      <button class="active" data-lang="fr">FR</button>
+      <button data-lang="en">EN</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow" data-fr="Initiative ANAPEC × FENAGRI" data-en="ANAPEC × FENAGRI Initiative">
+      Initiative ANAPEC × FENAGRI
+    </div>
+    <h1 data-fr='Ouverture du Contrat <em>aux non diplômés</em>' data-en='Opening the Contract <em>to non-graduates</em>'>
+      Ouverture du Contrat <em>aux non diplômés</em>
+    </h1>
+    <p class="hero-sub"
+       data-fr="Un programme conjoint ANAPEC et FENAGRI pour faciliter le recrutement des talents non diplômés dans le secteur agro-alimentaire et au-delà. Remplissez le formulaire ci-dessous pour exprimer votre intérêt."
+       data-en="A joint ANAPEC and FENAGRI program to facilitate the recruitment of non-graduate talent in the agri-food sector and beyond. Fill out the form below to express your interest.">
+      Un programme conjoint ANAPEC et FENAGRI pour faciliter le recrutement des talents non diplômés dans le secteur agro-alimentaire et au-delà. Remplissez le formulaire ci-dessous pour exprimer votre intérêt.
+    </p>
+
+    <div class="hero-meta">
+      <div class="meta-item">
+        <div class="label" data-fr="Programme" data-en="Program">Programme</div>
+        <div class="value" data-fr="National" data-en="National">National</div>
+      </div>
+      <div class="meta-item">
+        <div class="label" data-fr="Secteurs" data-en="Sectors">Secteurs</div>
+        <div class="value" data-fr="Multi-sectoriel" data-en="Multi-sector">Multi-sectoriel</div>
+      </div>
+      <div class="meta-item">
+        <div class="label" data-fr="Horizon" data-en="Horizon">Horizon</div>
+        <div class="value">2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM SECTION -->
+<section class="form-section">
+  <div class="form-card">
+
+    <!-- Stepper -->
+    <div class="stepper">
+      <div class="step active" data-step="1">
+        <div class="step-num">1</div>
+        <div class="step-info">
+          <div class="step-label" data-fr="Étape 1" data-en="Step 1">Étape 1</div>
+          <div class="step-title" data-fr="Informations entreprise" data-en="Company information">Informations entreprise</div>
+        </div>
+      </div>
+      <div class="step" data-step="2">
+        <div class="step-num">2</div>
+        <div class="step-info">
+          <div class="step-label" data-fr="Étape 2" data-en="Step 2">Étape 2</div>
+          <div class="step-title" data-fr="Contact ANAPEC" data-en="ANAPEC contact">Contact ANAPEC</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-body">
+
+      <!-- ===== PAGE 1 ===== -->
+      <div class="form-page active" data-page="1">
+        <h2 data-fr="Informations sur l'entreprise" data-en="Company information">
+          Informations sur l'entreprise
+        </h2>
+        <p class="page-desc"
+           data-fr="Merci de renseigner les informations de votre entreprise. Les champs marqués d'un * sont obligatoires."
+           data-en="Please provide your company information. Fields marked with * are required.">
+          Merci de renseigner les informations de votre entreprise. Les champs marqués d'un * sont obligatoires.
+        </p>
+
+        <div class="form-grid">
+          <div class="field full">
+            <label for="entreprise" data-fr="Entreprise" data-en="Company">
+              Entreprise<span class="req">*</span>
+            </label>
+            <input type="text" id="entreprise" name="entreprise" required
+                   data-fr-placeholder="Nom de l'entreprise"
+                   data-en-placeholder="Company name"
+                   placeholder="Nom de l'entreprise" />
+          </div>
+
+          <div class="field">
+            <label for="contact-name" data-fr="Nom du contact" data-en="Contact name">
+              Nom du contact entreprise<span class="req">*</span>
+            </label>
+            <input type="text" id="contact-name" name="contact-name" required
+                   data-fr-placeholder="Prénom et nom"
+                   data-en-placeholder="First and last name"
+                   placeholder="Prénom et nom" />
+          </div>
+
+          <div class="field">
+            <label for="contact-role" data-fr="Fonction" data-en="Job title">
+              Fonction du contact<span class="req">*</span>
+            </label>
+            <input type="text" id="contact-role" name="contact-role" required
+                   data-fr-placeholder="Ex : Directeur RH"
+                   data-en-placeholder="E.g. HR Director"
+                   placeholder="Ex : Directeur RH" />
+          </div>
+
+          <div class="field">
+            <label for="phone" data-fr="N° GSM ou Tél" data-en="Phone number">
+              N° GSM ou Tél<span class="req">*</span>
+            </label>
+            <input type="tel" id="phone" name="phone" required placeholder="+212 6 00 00 00 00" />
+          </div>
+
+          <div class="field">
+            <label for="email">Email<span class="req">*</span></label>
+            <input type="email" id="email" name="email" required placeholder="contact@entreprise.ma" />
+          </div>
+
+          <div class="field">
+            <label for="ville" data-fr="Ville" data-en="City">
+              Ville<span class="req">*</span>
+            </label>
+            <input type="text" id="ville" name="ville" required
+                   data-fr-placeholder="Ex : Casablanca"
+                   data-en-placeholder="E.g. Casablanca"
+                   placeholder="Ex : Casablanca" />
+          </div>
+
+          <div class="field">
+            <label for="region" data-fr="Région" data-en="Region">
+              Région<span class="req">*</span>
+            </label>
+            <select id="region" name="region" required>
+              <option value="" data-fr="-- Sélectionner --" data-en="-- Select --">-- Sélectionner --</option>
+              <option value="casablanca-settat">Casablanca-Settat</option>
+              <option value="rabat-sale-kenitra">Rabat-Salé-Kénitra</option>
+              <option value="fes-meknes">Fès-Meknès</option>
+              <option value="marrakech-safi">Marrakech-Safi</option>
+              <option value="tanger-tetouan">Tanger-Tétouan-Al Hoceima</option>
+              <option value="souss-massa">Souss-Massa</option>
+              <option value="oriental">L'Oriental</option>
+              <option value="beni-mellal-khenifra">Beni Mellal-Khénifra</option>
+              <option value="draa-tafilalet">Drâa-Tafilalet</option>
+              <option value="guelmim-oued-noun">Guelmim-Oued Noun</option>
+              <option value="laayoune-sakia">Laâyoune-Sakia El Hamra</option>
+              <option value="dakhla-oued-eddahab">Dakhla-Oued Ed Dahab</option>
+              <option value="autre" data-fr="Autre" data-en="Other">Autre</option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label for="secteur" data-fr="Secteur d'activité" data-en="Sector">
+              Secteur d'activité<span class="req">*</span>
+            </label>
+            <select id="secteur" name="secteur" required>
+              <option value="" data-fr="-- Sélectionner --" data-en="-- Select --">-- Sélectionner --</option>
+              <option value="ntic" data-fr="NTIC / Offshoring" data-en="ICT / Offshoring">NTIC / Offshoring</option>
+              <option value="agriculture" data-fr="Agriculture" data-en="Agriculture">Agriculture</option>
+              <option value="construction" data-fr="Construction" data-en="Construction">Construction</option>
+              <option value="tourisme" data-fr="Tourisme" data-en="Tourism">Tourisme</option>
+              <option value="commerce" data-fr="Commerce et distribution" data-en="Trade and distribution">Commerce et distribution</option>
+              <option value="automobile" data-fr="Automobile" data-en="Automotive">Automobile</option>
+              <option value="textile" data-fr="Textile" data-en="Textile">Textile</option>
+              <option value="agroalimentaire" data-fr="Agroalimentaire" data-en="Agri-food">Agroalimentaire</option>
+              <option value="aeronautique" data-fr="Aéronautique" data-en="Aeronautics">Aéronautique</option>
+              <option value="enseignement" data-fr="Enseignement" data-en="Education">Enseignement</option>
+              <option value="sante" data-fr="Santé" data-en="Health">Santé</option>
+              <option value="artisanat" data-fr="Artisanat" data-en="Crafts">Artisanat</option>
+              <option value="autre" data-fr="Autre" data-en="Other">Autre</option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label data-fr="Avez-vous des projets de recrutement à fin 2026 ?" data-en="Do you have recruitment plans by end of 2026?">
+              Avez-vous des projets de recrutement à fin 2026 ?<span class="req">*</span>
+            </label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input type="radio" id="recrut-oui" name="recrutement" value="oui" required />
+                <label for="recrut-oui" data-fr="Oui" data-en="Yes">Oui</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="recrut-non" name="recrutement" value="non" required />
+                <label for="recrut-non" data-fr="Non" data-en="No">Non</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <div class="btn-spacer"></div>
+          <button class="btn btn-primary" id="next-btn" data-fr="Suivant →" data-en="Next →">
+            Suivant →
+          </button>
+        </div>
+      </div>
+
+      <!-- ===== PAGE 2 ===== -->
+      <div class="form-page" data-page="2">
+        <h2 data-fr="Contact FENAGRI" data-en="FENAGRI Contact">
+          Contact FENAGRI
+        </h2>
+        <p class="page-desc"
+           data-fr="Dernière étape : précisez si vous souhaitez être contacté par la FENAGRI et l'objet de votre demande."
+           data-en="Last step: indicate whether you wish to be contacted by FENAGRI and the purpose of your request.">
+          Dernière étape : précisez si vous souhaitez être contacté par la FENAGRI et l'objet de votre demande.
+        </p>
+
+        <div class="form-grid">
+          <div class="field full">
+            <label data-fr="Désirez-vous être contacté par la FENAGRI ?" data-en="Do you wish to be contacted by FENAGRI?">
+              Désirez-vous être contacté par la FENAGRI ?<span class="req">*</span>
+            </label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input type="radio" id="contact-oui" name="contact-fenagri" value="oui" required />
+                <label for="contact-oui" data-fr="Oui" data-en="Yes">Oui</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="contact-non" name="contact-fenagri" value="non" required />
+                <label for="contact-non" data-fr="Non" data-en="No">Non</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="field full">
+            <label for="objet" data-fr="Objet du besoin de contact FENAGRI" data-en="Purpose of FENAGRI contact request">
+              Objet du besoin de contact FENAGRI<span class="req">*</span>
+            </label>
+            <select id="objet" name="objet" required>
+              <option value="" data-fr="-- Sélectionner --" data-en="-- Select --">-- Sélectionner --</option>
+              <option value="info" data-fr="Demande d'informations" data-en="Request for information">Demande d'informations</option>
+              <option value="offre" data-fr="Traitement d'une offre d'emploi" data-en="Job offer processing">Traitement d'une offre d'emploi</option>
+              <option value="contrats" data-fr="Gestion des contrats FENAGRI" data-en="Management of FENAGRI contracts">Gestion des contrats FENAGRI</option>
+              <option value="autre" data-fr="Autre (préciser)" data-en="Other (specify)">Autre (préciser)</option>
+            </select>
+          </div>
+
+          <div class="field full" id="autre-field" style="display:none;">
+            <label for="autre-precision" data-fr="Précisez" data-en="Please specify">
+              Précisez
+            </label>
+            <textarea id="autre-precision" name="autre-precision" rows="3"
+                      data-fr-placeholder="Décrivez votre besoin..."
+                      data-en-placeholder="Describe your need..."
+                      placeholder="Décrivez votre besoin..."></textarea>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-secondary" id="back-btn" data-fr="← Retour" data-en="← Back">
+            ← Retour
+          </button>
+          <div class="btn-spacer"></div>
+          <button class="btn btn-primary" id="submit-btn" data-fr="Soumettre ✓" data-en="Submit ✓">
+            Soumettre ✓
+          </button>
+        </div>
+      </div>
+
+      <!-- ===== SUCCESS ===== -->
+      <div class="form-page" data-page="3">
+        <div class="success-state">
+          <div class="success-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <h3 data-fr="Merci pour votre inscription !" data-en="Thank you for your registration!">
+            Merci pour votre inscription !
+          </h3>
+          <p data-fr="Votre demande a bien été transmise à l'ANAPEC et FENAGRI. Nos équipes vous recontacteront dans les plus brefs délais."
+             data-en="Your request has been sent to ANAPEC and FENAGRI. Our teams will get back to you as soon as possible.">
+            Votre demande a bien été transmise à l'ANAPEC et FENAGRI. Nos équipes vous recontacteront dans les plus brefs délais.
+          </p>
+          <button class="btn btn-secondary" id="restart-btn"
+                  data-fr="Soumettre une autre demande" data-en="Submit another request">
+            Soumettre une autre demande
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INFO STRIP -->
+<section class="info-strip">
+  <div class="info-grid">
+    <div class="info-item">
+      <div class="icon">🤝</div>
+      <h4 data-fr="Partenariat institutionnel" data-en="Institutional partnership">
+        Partenariat institutionnel
+      </h4>
+      <p data-fr="ANAPEC et FENAGRI unis pour soutenir l'emploi au Maroc."
+         data-en="ANAPEC and FENAGRI united to support employment in Morocco.">
+        ANAPEC et FENAGRI unis pour soutenir l'emploi au Maroc.
+      </p>
+    </div>
+    <div class="info-item">
+      <div class="icon">📋</div>
+      <h4 data-fr="Procédure simplifiée" data-en="Simplified procedure">
+        Procédure simplifiée
+      </h4>
+      <p data-fr="Un formulaire en 2 étapes pour exprimer votre intérêt."
+         data-en="A 2-step form to express your interest.">
+        Un formulaire en 2 étapes pour exprimer votre intérêt.
+      </p>
+    </div>
+    <div class="info-item">
+      <div class="icon">🌱</div>
+      <h4 data-fr="Inclusif & sectoriel" data-en="Inclusive & sectoral">
+        Inclusif & sectoriel
+      </h4>
+      <p data-fr="Ouvert à tous les secteurs avec un focus sur l'agro-alimentaire."
+         data-en="Open to all sectors with a focus on agri-food.">
+        Ouvert à tous les secteurs avec un focus sur l'agro-alimentaire.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-block">
+        <h5>ANAPEC</h5>
+        <p data-fr="Agence Nationale de Promotion de l'Emploi et des Compétences. Pour en savoir plus : "
+           data-en="National Agency for the Promotion of Employment and Skills. Learn more: ">
+          Agence Nationale de Promotion de l'Emploi et des Compétences. Pour en savoir plus :
+        </p>
+        <p><a href="https://www.anapec.org" target="_blank">www.anapec.org</a></p>
+      </div>
+      <div class="footer-block">
+        <h5>FENAGRI</h5>
+        <p data-fr="Fédération Nationale de l'Agro-alimentaire. Pour en savoir plus : "
+           data-en="National Federation of Agri-food Industries. Learn more: ">
+          Fédération Nationale de l'Agro-alimentaire. Pour en savoir plus :
+        </p>
+        <p><a href="https://www.fenagri.org" target="_blank">www.fenagri.org</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 · ANAPEC × FENAGRI · <span data-fr="Tous droits réservés" data-en="All rights reserved">Tous droits réservés</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ===== Language toggle =====
+  const langButtons = document.querySelectorAll('.lang-toggle button');
+  let currentLang = 'fr';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+
+    // Update text content
+    document.querySelectorAll('[data-fr]').forEach(el => {
+      const text = el.getAttribute('data-' + lang);
+      if (text !== null) {
+        // Use innerHTML for the <em> in the H1
+        if (el.tagName === 'H1' || text.includes('<')) {
+          el.innerHTML = text;
+        } else {
+          el.textContent = text;
+        }
+      }
+    });
+
+    // Update placeholders
+    document.querySelectorAll('[data-fr-placeholder]').forEach(el => {
+      const ph = el.getAttribute('data-' + lang + '-placeholder');
+      if (ph) el.placeholder = ph;
+    });
+
+    // Update active button
+    langButtons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  }
+
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', () => setLang(btn.dataset.lang));
+  });
+
+  // ===== Multi-step form =====
+  const pages = document.querySelectorAll('.form-page');
+  const steps = document.querySelectorAll('.step');
+  const nextBtn = document.getElementById('next-btn');
+  const backBtn = document.getElementById('back-btn');
+  const submitBtn = document.getElementById('submit-btn');
+  const restartBtn = document.getElementById('restart-btn');
+  const objetSelect = document.getElementById('objet');
+  const autreField = document.getElementById('autre-field');
+
+  function showPage(num) {
+    pages.forEach(p => p.classList.toggle('active', p.dataset.page == num));
+    steps.forEach(s => {
+      const sn = parseInt(s.dataset.step);
+      s.classList.toggle('active', sn == num);
+      s.classList.toggle('completed', sn < num);
+    });
+    window.scrollTo({ top: document.querySelector('.form-section').offsetTop - 100, behavior: 'smooth' });
+  }
+
+  function validatePage(num) {
+    const page = document.querySelector(`.form-page[data-page="${num}"]`);
+    const required = page.querySelectorAll('[required]');
+    let valid = true;
+    const radioGroups = new Set();
+
+    required.forEach(field => {
+      if (field.type === 'radio') {
+        radioGroups.add(field.name);
+      } else if (!field.value.trim()) {
+        field.style.borderColor = 'var(--red)';
+        valid = false;
+        setTimeout(() => field.style.borderColor = '', 2500);
+      }
+    });
+
+    radioGroups.forEach(name => {
+      const checked = page.querySelector(`input[name="${name}"]:checked`);
+      if (!checked) {
+        valid = false;
+        page.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+          r.nextElementSibling.style.borderColor = 'var(--red)';
+          setTimeout(() => r.nextElementSibling.style.borderColor = '', 2500);
+        });
+      }
+    });
+
+    return valid;
+  }
+
+  nextBtn.addEventListener('click', () => {
+    if (validatePage(1)) showPage(2);
+  });
+
+  backBtn.addEventListener('click', () => showPage(1));
+
+  submitBtn.addEventListener('click', () => {
+    if (validatePage(2)) {
+      // In real use this would POST to a server
+      showPage(3);
+    }
+  });
+
+  restartBtn.addEventListener('click', () => {
+    document.querySelectorAll('input, select, textarea').forEach(el => {
+      if (el.type === 'radio' || el.type === 'checkbox') el.checked = false;
+      else el.value = '';
+    });
+    autreField.style.display = 'none';
+    showPage(1);
+  });
+
+  objetSelect.addEventListener('change', () => {
+    autreField.style.display = objetSelect.value === 'autre' ? 'flex' : 'none';
+  });
+</script>
+
+</body>
+</html>
