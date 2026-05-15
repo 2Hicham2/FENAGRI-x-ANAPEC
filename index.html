@@ -3,40 +3,38 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AGRO CONNECT DAY — FENAGRI × ANAPEC · 10 Juin 2025</title>
+<title>AGRO CONNECT DAY — FENAGRI × ANAPEC · 10 Juin 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Archivo+Black&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* ANAPEC purple */
-    --purple-darkest: #1a0533;
-    --purple-deep: #2d0a5c;
-    --purple: #4a1593;
-    --purple-mid: #6b21c9;
-    --purple-light: #8e3cdb;
-    --purple-soft: #b072e8;
+    /* === EXACT BRAND COLORS === */
+    --purple: #6A1B6D;
+    --purple-dark: #4d1450;
+    --purple-darker: #3a0f3d;
+    --purple-light: #8b2d8f;
+    --purple-soft: #c896c9;
+    --purple-tint: #f3eaf3;
 
-    /* FENAGRI green */
-    --green-deep: #0e5c3a;
-    --green: #1a8552;
-    --green-bright: #22a866;
-    --green-light: #4dc97e;
-    --green-soft: #8fdcab;
+    --green: #649F47;
+    --green-bright: #7ab85a;
+    --green-light: #a3d089;
+    --green-soft: #d4e9c5;
+    --green-tint: #eef5e8;
 
-    /* Teal — the bridge between green and purple */
-    --teal-deep: #0e7a6a;
-    --teal: #16a085;
-    --teal-bright: #1abc9c;
-    --teal-light: #5dd4b8;
+    --green-deep: #0D3521;
+    --green-deeper: #082218;
 
     /* Neutrals */
-    --cream: #f5f1ec;
+    --cream: #faf8f5;
+    --offwhite: #f3f1f5;
     --white: #ffffff;
-    --ink: #1a0533;
-    --gray: #6b5a7a;
-    --border: rgba(255,255,255,0.12);
-    --border-light: #e3ddec;
+    --ink: #1a0f1f;
+    --gray: #6b5a6e;
+    --gray-light: #a89aab;
+    --border: rgba(0,0,0,0.08);
+    --border-light: #e8e2ea;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -44,22 +42,31 @@
 
   body {
     font-family: 'Manrope', sans-serif;
-    background: var(--purple-darkest);
-    color: var(--white);
+    background: var(--white);
+    color: var(--ink);
     line-height: 1.6;
     min-height: 100vh;
     overflow-x: hidden;
   }
 
-  /* ===== DIAMOND PATTERN (corner decoration like poster) ===== */
-  .diamond-pattern {
+  /* ===== DECORATIVE LEAVES (from posters) ===== */
+  .leaf-decoration {
     position: absolute;
-    width: 180px;
-    height: 200px;
-    background-image: radial-gradient(circle, rgba(255,255,255,0.18) 1.2px, transparent 1.5px);
-    background-size: 14px 14px;
     pointer-events: none;
-    opacity: 0.7;
+    z-index: 1;
+  }
+
+  .leaf-decoration svg { display: block; width: 100%; height: 100%; }
+
+  .dot-pattern {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    background-image: radial-gradient(circle, var(--purple-soft) 1.4px, transparent 1.6px);
+    background-size: 12px 12px;
+    pointer-events: none;
+    opacity: 0.45;
+    z-index: 1;
   }
 
   /* ===== HEADER ===== */
@@ -69,13 +76,13 @@
     top: 0;
     z-index: 100;
     border-bottom: 1px solid var(--border-light);
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
   }
 
   .header-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1.1rem 2rem;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -85,17 +92,17 @@
   .brand-block {
     display: flex;
     align-items: center;
-    gap: 1.2rem;
+    gap: 1.4rem;
   }
 
   .brand {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.75rem;
   }
 
   .brand-logo-img {
-    height: 44px;
+    height: 46px;
     width: auto;
     object-fit: contain;
     display: block;
@@ -106,7 +113,6 @@
     font-size: 0.95rem;
     color: var(--ink);
     line-height: 1.1;
-    letter-spacing: 0.02em;
   }
 
   .brand-info .sub {
@@ -118,10 +124,8 @@
     font-weight: 600;
   }
 
-  /* FENAGRI side accent */
-  .brand.fenagri .sub { color: var(--green); }
-  /* ANAPEC side accent */
-  .brand.anapec .sub { color: var(--purple-mid); }
+  .brand.anapec .name { color: var(--purple); }
+  .brand.fenagri .name { color: var(--green); }
 
   .brand-divider {
     width: 1px;
@@ -131,11 +135,10 @@
 
   .lang-toggle {
     display: flex;
-    background: #f3edfa;
+    background: var(--offwhite);
     border: 1px solid var(--border-light);
     border-radius: 999px;
     padding: 4px;
-    gap: 2px;
   }
 
   .lang-toggle button {
@@ -154,40 +157,25 @@
   }
 
   .lang-toggle button.active {
-    background: linear-gradient(135deg, var(--green-bright) 0%, var(--purple-mid) 100%);
+    background: var(--purple);
     color: white;
-    box-shadow: 0 2px 10px rgba(34, 168, 102, 0.4);
+    box-shadow: 0 2px 8px rgba(106, 27, 109, 0.3);
   }
 
-  /* ===== HERO (the poster-style banner) ===== */
+  /* ===== HERO ===== */
   .hero {
     position: relative;
-    padding: 4rem 2rem 5rem;
+    padding: 3.5rem 2rem 4rem;
     overflow: hidden;
-    background:
-      radial-gradient(ellipse 55% 50% at 15% 25%, rgba(26, 133, 82, 0.55) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 55% at 85% 75%, rgba(142, 60, 219, 0.5) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 30% at 50% 50%, rgba(22, 160, 133, 0.25) 0%, transparent 70%),
-      linear-gradient(135deg, var(--green-deep) 0%, var(--purple-deep) 50%, var(--purple-darkest) 100%);
+    background: var(--white);
   }
 
-  /* Faint factory/industrial texture overlay */
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
-      linear-gradient(0deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-    background-size: 60px 60px;
-    pointer-events: none;
-  }
-
-  .hero .diamond-pattern.tl { top: 80px; left: 30px; }
-  .hero .diamond-pattern.br { bottom: 30px; right: 30px; }
+  .hero .leaf-tl { top: 0; left: 0; width: 160px; height: 220px; }
+  .hero .leaf-br { bottom: 0; right: 0; width: 180px; height: 240px; transform: scaleX(-1); }
+  .hero .dot-pattern-tr { top: 30px; right: 5%; width: 120px; height: 120px; }
 
   .hero-inner {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     position: relative;
     z-index: 2;
@@ -198,25 +186,23 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    margin-bottom: 1.8rem;
-    text-align: center;
+    margin-bottom: 2.5rem;
   }
 
   .hero-eyebrow .line {
     height: 2px;
-    width: 50px;
-    background: linear-gradient(90deg, var(--green-bright), var(--teal), var(--purple-light));
+    width: 40px;
+    background: var(--purple);
   }
 
   .hero-eyebrow .text {
     font-size: 0.82rem;
     font-weight: 700;
-    color: white;
+    color: var(--purple);
     text-transform: uppercase;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.18em;
   }
 
-  /* Main poster title */
   .hero-title {
     text-align: center;
     margin-bottom: 1.5rem;
@@ -225,408 +211,338 @@
 
   .hero-title h1 {
     font-family: 'Archivo Black', sans-serif;
-    font-size: clamp(3.2rem, 9vw, 7rem);
+    font-size: clamp(3rem, 8vw, 6.2rem);
     line-height: 0.95;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.015em;
     text-transform: uppercase;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.3em;
   }
 
-  .hero-title .line-1,
-  .hero-title .line-2,
-  .hero-title .line-3 {
-    display: block;
-  }
+  .hero-title .word-agro { color: var(--purple); }
+  .hero-title .word-connect { color: var(--green-deep); }
+  .hero-title .word-day { color: var(--purple); position: relative; }
 
-  .hero-title .line-1 { color: white; }
-
-  /* CONNECT — gradient: green (FENAGRI) → teal → purple (ANAPEC) */
-  .hero-title .line-2 {
-    background: linear-gradient(90deg,
-      var(--green-bright) 0%,
-      var(--teal-bright) 35%,
-      var(--purple-mid) 70%,
-      var(--purple-light) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-  }
-
-  .hero-title .line-3 {
-    color: white;
-    position: relative;
-  }
-
-  .hero-title .line-3::after {
+  /* Green curve under DAY (like poster) */
+  .hero-title .word-day::after {
     content: '';
-    display: block;
-    width: 110px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--green-bright), var(--teal), var(--purple-light));
-    margin: 0.8rem auto 0;
-    border-radius: 2px;
+    position: absolute;
+    bottom: -0.12em;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    clip-path: polygon(0 100%, 100% 100%, 95% 0, 5% 0);
   }
 
-  /* Handshake decorative icon */
-  .handshake-decoration {
-    position: absolute;
-    top: 50%;
-    right: 8%;
-    transform: translateY(-50%);
-    width: 220px;
-    height: 220px;
-    opacity: 0.65;
-    pointer-events: none;
-    filter: drop-shadow(0 0 30px rgba(244, 123, 32, 0.4));
+  .hero-subtitle {
+    text-align: center;
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    color: var(--ink);
+    font-weight: 600;
+    margin: 1.8rem auto 0.4rem;
+    max-width: 700px;
   }
+
+  .hero-subtitle .accent-purple { color: var(--purple); font-weight: 800; }
+  .hero-subtitle .accent-green { color: var(--green); font-weight: 800; }
 
   .hero-tagline {
     text-align: center;
-    font-size: clamp(1.05rem, 2vw, 1.4rem);
-    color: rgba(255,255,255,0.92);
-    font-weight: 500;
-    margin-bottom: 2rem;
-  }
-
-  .hero-tagline .sep {
-    color: var(--teal-light);
-    margin: 0 0.6rem;
-    font-weight: 800;
-  }
-
-  /* Promo pill */
-  .promo-pill {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    background: rgba(255,255,255,0.95);
-    color: var(--purple-deep);
-    padding: 0.9rem 1.8rem;
-    border-radius: 999px;
-    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-    font-weight: 700;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-  }
-
-  .promo-pill-wrap {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 3rem;
-  }
-
-  .promo-pill .accent {
+    font-size: 1.05rem;
     color: var(--green);
-    margin: 0 4px;
-    font-weight: 800;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
-  /* Event meta strip (date + venue, poster bottom) */
-  .event-meta {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 2.5rem;
-    align-items: center;
-    padding: 1.8rem 2rem;
-    background: rgba(0,0,0,0.35);
-    backdrop-filter: blur(8px);
-    border-radius: 18px;
-    border: 1px solid rgba(255,255,255,0.1);
-    max-width: 800px;
+  .handshake-illustration {
+    width: 130px;
+    height: 80px;
+    margin: 0 auto 2rem;
+    display: block;
+  }
+
+  .hero-description {
+    max-width: 780px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    color: var(--ink);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    padding: 0 1rem;
+  }
+
+  .hero-description strong.purple { color: var(--purple); font-weight: 800; }
+  .hero-description strong.green { color: var(--green); font-weight: 800; }
+
+  /* ===== BENEFITS CARD ===== */
+  .benefits-section {
+    padding: 0 2rem 4rem;
+    position: relative;
+    background: var(--white);
+  }
+
+  .benefits-wrap {
+    max-width: 1100px;
     margin: 0 auto;
+    position: relative;
   }
 
-  .event-meta-item {
+  .benefits-pill-wrap {
+    text-align: center;
+    margin-bottom: -14px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .benefits-pill {
+    background: var(--purple);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 14px;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(1rem, 1.8vw, 1.3rem);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: inline-block;
+    box-shadow: 0 6px 20px rgba(106, 27, 109, 0.25);
+  }
+
+  .benefits-card {
+    background: var(--offwhite);
+    border-radius: 20px;
+    padding: 2.5rem 2rem 2rem;
+    padding-top: 3rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+    position: relative;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .benefit-item {
     display: flex;
     align-items: center;
     gap: 1rem;
+    text-align: left;
   }
 
-  .event-meta-icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-bright) 100%);
+  .benefit-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--purple);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
     flex-shrink: 0;
-    box-shadow: 0 4px 18px rgba(22, 160, 133, 0.4);
+    box-shadow: 0 4px 14px rgba(106, 27, 109, 0.25);
   }
 
-  .event-meta-icon.green {
-    background: linear-gradient(135deg, var(--green) 0%, var(--green-bright) 100%);
-    box-shadow: 0 4px 18px rgba(34, 168, 102, 0.45);
-  }
-
-  .event-meta-icon.purple {
-    background: linear-gradient(135deg, var(--purple) 0%, var(--purple-mid) 100%);
-    box-shadow: 0 4px 18px rgba(107, 33, 201, 0.5);
-  }
-
-  .event-meta-icon svg {
+  .benefit-icon svg {
     width: 26px;
     height: 26px;
-    stroke: white;
-    stroke-width: 2;
-    fill: none;
   }
 
-  .event-meta-label {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--green-soft);
-    font-weight: 700;
-    margin-bottom: 4px;
-  }
-
-  .event-meta-item:nth-child(3) .event-meta-label {
-    color: var(--purple-soft);
-  }
-
-  .event-meta-value {
-    font-family: 'Archivo Black', sans-serif;
-    font-size: 1.35rem;
-    color: white;
-    line-height: 1;
-    letter-spacing: 0.02em;
-  }
-
-  .event-meta-sub {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.7);
-    margin-top: 4px;
+  .benefit-text {
+    font-size: 0.95rem;
+    line-height: 1.35;
+    color: var(--ink);
     font-weight: 500;
   }
 
-  .event-meta-divider {
-    width: 1px;
-    height: 60px;
-    background: rgba(255,255,255,0.2);
+  /* ===== OBJECTIVES SECTION ===== */
+  .objectives-section {
+    padding: 1rem 2rem 4rem;
+    background: var(--white);
   }
 
-  /* ===== BENEFITS BAND ===== */
-  .benefits-band {
-    background:
-      radial-gradient(ellipse 50% 60% at 10% 50%, rgba(26, 133, 82, 0.2) 0%, transparent 60%),
-      radial-gradient(ellipse 50% 60% at 90% 50%, rgba(107, 33, 201, 0.25) 0%, transparent 60%),
-      linear-gradient(180deg, var(--purple-darkest) 0%, var(--purple-deep) 100%);
-    padding: 5rem 2rem;
+  .objectives-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .objectives-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .objectives-header .line {
+    height: 1.5px;
+    width: 60px;
+    background: var(--purple);
+  }
+
+  .objectives-header h3 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1rem;
+    color: var(--purple);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .objectives-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .objective {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    padding-right: 1rem;
+    border-right: 1px solid var(--border-light);
+  }
+
+  .objective:last-child { border-right: none; padding-right: 0; }
+
+  .objective-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .objective-icon svg {
+    width: 38px;
+    height: 38px;
+  }
+
+  .objective:nth-child(1) .objective-icon svg { color: var(--purple); }
+  .objective:nth-child(2) .objective-icon svg { color: var(--green); }
+  .objective:nth-child(3) .objective-icon svg { color: var(--purple); }
+  .objective:nth-child(4) .objective-icon svg { color: var(--green); }
+
+  .objective-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ===== BOTTOM STRIP ===== */
+  .event-strip {
+    background: linear-gradient(90deg, var(--purple) 0%, var(--purple-light) 30%, var(--green) 70%, var(--green-bright) 100%);
+    color: white;
+    padding: 1.8rem 2rem;
     position: relative;
     overflow: hidden;
   }
 
-  .benefits-band::before {
-    content: '';
-    position: absolute;
-    top: 0; left: -10%; right: -10%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--green-bright), var(--teal-bright), var(--purple-light), transparent);
-  }
-
-  .benefits-wrap {
-    max-width: 1200px;
+  .event-strip-inner {
+    max-width: 1100px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3.5rem;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 2rem;
     align-items: center;
   }
 
-  .benefits-intro h2 {
-    font-family: 'Archivo Black', sans-serif;
-    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
-    line-height: 1.05;
-    text-transform: uppercase;
-    margin-bottom: 1.2rem;
-    color: white;
-  }
-
-  .benefits-intro h2 .accent {
-    color: var(--teal-light);
-    display: block;
-  }
-
-  .benefits-intro p {
-    color: rgba(255,255,255,0.75);
-    font-size: 1.05rem;
-    line-height: 1.7;
-    max-width: 460px;
-  }
-
-  .benefits-card {
-    background: linear-gradient(160deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-  }
-
-  .benefits-card-header {
-    background: linear-gradient(90deg, var(--green) 0%, var(--teal) 50%, var(--purple-mid) 100%);
-    color: white;
-    padding: 0.9rem 1.4rem;
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
-    font-weight: 800;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    box-shadow: 0 6px 20px rgba(74, 21, 147, 0.35);
-  }
-
-  .benefit-row {
+  .event-tagline {
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 0.85rem 0;
-    border-bottom: 1px dashed rgba(255,255,255,0.08);
   }
 
-  .benefit-row:last-child { border-bottom: none; }
+  .megaphone-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+  }
 
-  .benefit-check {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--green-bright) 0%, var(--teal) 50%, var(--purple-mid) 100%);
+  .megaphone-icon svg { width: 100%; height: 100%; }
+
+  .event-tagline-text { font-size: 0.95rem; line-height: 1.35; font-weight: 700; }
+
+  .event-tagline-text .top {
+    display: block;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .event-tagline-text .bottom {
+    display: block;
+    color: var(--green-light);
+    margin-top: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-size: 0.85rem;
+  }
+
+  .event-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .event-info-icon {
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    box-shadow: 0 2px 10px rgba(22, 160, 133, 0.35);
   }
 
-  .benefit-check svg {
-    width: 16px;
-    height: 16px;
-    stroke: white;
-    stroke-width: 3;
-    fill: none;
-  }
+  .event-info-icon svg { width: 100%; height: 100%; }
 
-  .benefit-text {
-    color: white;
-    font-size: 1rem;
-    font-weight: 500;
-  }
-
-  /* ===== THREE PILLARS (POUR LES ENTREPRISES / JEUNES / AVENIR) ===== */
-  .pillars {
-    background: var(--cream);
-    color: var(--ink);
-    padding: 4rem 2rem;
-    position: relative;
-  }
-
-  .pillars::before {
-    content: '';
-    position: absolute;
-    top: -1px; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--green-bright) 0%, var(--teal-bright) 50%, var(--purple-light) 100%);
-  }
-
-  .pillars-grid {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-
-  .pillar {
-    padding: 1.5rem 0.5rem;
-    border-left: 1px solid var(--border-light);
-    padding-left: 1.8rem;
-  }
-
-  .pillar:first-child { border-left: none; padding-left: 0.5rem; }
-
-  .pillar-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    color: white;
-  }
-
-  /* Each pillar gets its own brand color */
-  .pillar:nth-child(1) .pillar-icon {
-    background: linear-gradient(135deg, var(--green) 0%, var(--green-bright) 100%);
-    box-shadow: 0 4px 16px rgba(26, 133, 82, 0.3);
-  }
-  .pillar:nth-child(2) .pillar-icon {
-    background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal-bright) 100%);
-    box-shadow: 0 4px 16px rgba(22, 160, 133, 0.3);
-  }
-  .pillar:nth-child(3) .pillar-icon {
-    background: linear-gradient(135deg, var(--purple) 0%, var(--purple-mid) 100%);
-    box-shadow: 0 4px 16px rgba(74, 21, 147, 0.3);
-  }
-
-  .pillar-icon svg {
-    width: 24px;
-    height: 24px;
-    stroke: white;
-    stroke-width: 2;
-    fill: none;
-  }
-
-  .pillar h4 {
+  .event-info-label {
     font-family: 'Archivo Black', sans-serif;
-    font-size: 0.95rem;
+    font-size: 1.2rem;
+    line-height: 1;
+    letter-spacing: 0.02em;
+  }
+
+  .event-info-sub {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.85);
+    margin-top: 3px;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    margin-bottom: 0.6rem;
-  }
-
-  /* Heading color matches the icon */
-  .pillar:nth-child(1) h4 { color: var(--green-deep); }
-  .pillar:nth-child(2) h4 { color: var(--teal-deep); }
-  .pillar:nth-child(3) h4 { color: var(--purple-deep); }
-
-  .pillar p {
-    color: var(--gray);
-    font-size: 0.92rem;
-    line-height: 1.65;
-  }
-
-  .pillar p strong {
-    color: var(--ink);
-    font-weight: 700;
+    font-weight: 600;
   }
 
   /* ===== FORM SECTION ===== */
   .form-section {
-    background: linear-gradient(180deg, var(--purple-darkest) 0%, var(--purple-deep) 100%);
+    background: linear-gradient(180deg, var(--offwhite) 0%, var(--white) 100%);
     padding: 5rem 2rem 6rem;
     position: relative;
     overflow: hidden;
   }
 
-  .form-section::before {
-    content: '';
-    position: absolute;
-    top: 20%; left: -20%;
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(26, 133, 82, 0.18) 0%, transparent 70%);
-    pointer-events: none;
+  .form-section .leaf-decoration { z-index: 0; }
+
+  .form-section .leaf-tl {
+    top: 80px;
+    left: 0;
+    width: 130px;
+    height: 180px;
+    opacity: 0.4;
   }
 
-  .form-section::after {
-    content: '';
-    position: absolute;
-    bottom: 10%; right: -15%;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(142, 60, 219, 0.2) 0%, transparent 70%);
-    pointer-events: none;
+  .form-section .leaf-br {
+    bottom: 60px;
+    right: 0;
+    width: 150px;
+    height: 200px;
+    opacity: 0.4;
+    transform: scaleX(-1);
   }
 
   .form-intro {
@@ -639,38 +555,38 @@
 
   .form-intro .eyebrow {
     display: inline-block;
-    background: linear-gradient(90deg, rgba(34, 168, 102, 0.2), rgba(22, 160, 133, 0.2), rgba(142, 60, 219, 0.2));
-    color: white;
-    padding: 0.45rem 1rem;
+    background: var(--purple-tint);
+    color: var(--purple);
+    padding: 0.45rem 1.2rem;
     border-radius: 999px;
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     margin-bottom: 1.2rem;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid var(--purple-soft);
   }
 
   .form-intro h2 {
     font-family: 'Archivo Black', sans-serif;
-    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-    color: white;
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
     line-height: 1.1;
     margin-bottom: 1rem;
     text-transform: uppercase;
   }
 
-  .form-intro h2 .accent { color: var(--teal-light); }
+  .form-intro h2 .purple { color: var(--purple); }
+  .form-intro h2 .green { color: var(--green-deep); }
 
   .form-intro p {
-    color: rgba(255,255,255,0.75);
+    color: var(--gray);
     font-size: 1rem;
-    max-width: 600px;
+    max-width: 580px;
     margin: 0 auto;
   }
 
   .form-wrap {
-    max-width: 760px;
+    max-width: 780px;
     margin: 0 auto;
     position: relative;
     z-index: 2;
@@ -679,17 +595,14 @@
   .form-card {
     background: white;
     border-radius: 20px;
-    box-shadow:
-      0 20px 60px rgba(0,0,0,0.4),
-      0 0 0 1px rgba(255,255,255,0.05);
+    box-shadow: 0 10px 40px rgba(106, 27, 109, 0.1), 0 0 0 1px var(--border-light);
     overflow: hidden;
-    color: var(--ink);
   }
 
   .stepper {
     display: flex;
-    background: linear-gradient(135deg, var(--green-deep) 0%, var(--green) 30%, var(--purple) 70%, var(--purple-deep) 100%);
-    padding: 1.6rem 2rem;
+    background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple) 100%);
+    padding: 1.5rem 2rem;
     gap: 1rem;
     color: white;
     position: relative;
@@ -700,7 +613,7 @@
     position: absolute;
     bottom: 0; left: 0; right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--green-bright) 0%, var(--teal-bright) 50%, var(--purple-light) 100%);
+    background: linear-gradient(90deg, var(--purple-light) 0%, var(--green) 100%);
   }
 
   .step {
@@ -708,12 +621,12 @@
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    opacity: 0.5;
+    opacity: 0.45;
     transition: opacity 0.3s;
   }
 
   .step.active { opacity: 1; }
-  .step.completed { opacity: 0.85; }
+  .step.completed { opacity: 0.8; }
 
   .step-num {
     width: 34px;
@@ -731,15 +644,15 @@
   }
 
   .step.active .step-num {
-    background: linear-gradient(135deg, var(--green-bright) 0%, var(--teal-bright) 100%);
+    background: var(--green);
     color: white;
     border-color: white;
-    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.18);
+    box-shadow: 0 0 0 4px rgba(255,255,255,0.2);
   }
 
   .step.completed .step-num {
     background: white;
-    color: var(--purple-deep);
+    color: var(--purple);
     border-color: white;
   }
 
@@ -747,7 +660,7 @@
     font-size: 0.68rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    opacity: 0.8;
+    opacity: 0.85;
     font-weight: 600;
   }
 
@@ -757,15 +670,9 @@
     margin-top: 2px;
   }
 
-  .form-body {
-    padding: 2.5rem;
-  }
+  .form-body { padding: 2.5rem; }
 
-  .form-page {
-    display: none;
-    animation: fadeIn 0.4s ease;
-  }
-
+  .form-page { display: none; animation: fadeIn 0.4s ease; }
   .form-page.active { display: block; }
 
   @keyframes fadeIn {
@@ -776,14 +683,9 @@
   .form-page h3 {
     font-family: 'Archivo Black', sans-serif;
     font-size: 1.5rem;
-    color: var(--purple-deep);
+    color: var(--purple);
     margin-bottom: 0.4rem;
     text-transform: uppercase;
-    letter-spacing: 0.01em;
-    background: linear-gradient(90deg, var(--green-deep) 0%, var(--purple-deep) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
 
   .form-page .page-desc {
@@ -806,14 +708,14 @@
   .field label {
     font-size: 0.74rem;
     font-weight: 700;
-    color: #2a5d4f;
+    color: var(--purple);
     text-transform: uppercase;
     letter-spacing: 0.07em;
     margin-bottom: 0.5rem;
   }
 
   .field label .req {
-    color: var(--purple-mid);
+    color: var(--green);
     margin-left: 2px;
   }
 
@@ -825,7 +727,7 @@
     padding: 0.85rem 1rem;
     border: 1.5px solid var(--border-light);
     border-radius: 10px;
-    background: #fbf9fc;
+    background: var(--cream);
     color: var(--ink);
     transition: all 0.2s;
     width: 100%;
@@ -835,23 +737,21 @@
   .field select:focus,
   .field textarea:focus {
     outline: none;
-    border-color: var(--teal);
+    border-color: var(--purple);
     background: white;
-    box-shadow: 0 0 0 4px rgba(22, 160, 133, 0.15);
+    box-shadow: 0 0 0 4px rgba(106, 27, 109, 0.1);
   }
 
   .field select {
     cursor: pointer;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2316a085' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236A1B6D' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 1rem center;
     padding-right: 2.5rem;
   }
 
-  /* Radio */
   .radio-group { display: flex; gap: 0.8rem; }
-
   .radio-option { flex: 1; position: relative; }
 
   .radio-option input[type="radio"] {
@@ -866,7 +766,7 @@
     justify-content: center;
     gap: 0.5rem;
     padding: 0.85rem 1rem;
-    background: #fbf9fc;
+    background: var(--cream);
     border: 1.5px solid var(--border-light);
     border-radius: 10px;
     cursor: pointer;
@@ -890,18 +790,17 @@
   }
 
   .radio-option input[type="radio"]:checked + label {
-    border-color: var(--teal);
-    background: linear-gradient(135deg, #e8f5ef 0%, #f0e8f7 100%);
-    color: #2a5d4f;
+    border-color: var(--purple);
+    background: var(--purple-tint);
+    color: var(--purple);
   }
 
   .radio-option input[type="radio"]:checked + label::before {
-    border-color: var(--green-bright);
-    background: linear-gradient(135deg, var(--green-bright) 0%, var(--purple-mid) 100%);
+    border-color: var(--green);
+    background: var(--green);
     box-shadow: inset 0 0 0 3px white;
   }
 
-  /* Actions */
   .form-actions {
     display: flex;
     justify-content: space-between;
@@ -929,35 +828,30 @@
   }
 
   .btn-primary {
-    background: linear-gradient(135deg, var(--green) 0%, var(--teal) 50%, var(--purple-mid) 100%);
+    background: var(--purple);
     color: white;
-    box-shadow: 0 6px 20px rgba(74, 21, 147, 0.35);
-    background-size: 200% 100%;
-    background-position: 0% 50%;
-    transition: all 0.4s ease;
+    box-shadow: 0 6px 18px rgba(106, 27, 109, 0.3);
   }
 
   .btn-primary:hover {
+    background: var(--purple-dark);
     transform: translateY(-2px);
-    background-position: 100% 50%;
-    box-shadow: 0 10px 28px rgba(22, 160, 133, 0.4);
+    box-shadow: 0 10px 24px rgba(106, 27, 109, 0.4);
   }
 
   .btn-secondary {
-    background: linear-gradient(135deg, #f0f5f2 0%, #f3edfa 100%);
-    color: var(--purple-deep);
+    background: var(--offwhite);
+    color: var(--purple);
     border: 1.5px solid var(--border-light);
   }
 
   .btn-secondary:hover {
-    border-color: var(--teal);
-    color: var(--green-deep);
-    background: linear-gradient(135deg, #e8f5ef 0%, #ede5f7 100%);
+    border-color: var(--purple);
+    background: var(--purple-tint);
   }
 
   .btn-spacer { flex: 1; }
 
-  /* Success */
   .success-state {
     text-align: center;
     padding: 2rem 0;
@@ -967,13 +861,13 @@
     width: 86px;
     height: 86px;
     margin: 0 auto 1.5rem;
-    background: linear-gradient(135deg, var(--green-bright) 0%, var(--teal) 50%, var(--purple-mid) 100%);
+    background: linear-gradient(135deg, var(--purple) 0%, var(--green) 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     animation: scaleIn 0.5s ease;
-    box-shadow: 0 10px 30px rgba(74, 21, 147, 0.4);
+    box-shadow: 0 10px 30px rgba(106, 27, 109, 0.3);
   }
 
   @keyframes scaleIn {
@@ -989,26 +883,14 @@
     fill: none;
   }
 
-  .success-state h3 {
-    color: var(--purple-deep);
-    margin-bottom: 0.8rem;
-    background: linear-gradient(90deg, var(--green-deep) 0%, var(--purple-deep) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .success-state p {
-    color: var(--gray);
-    max-width: 480px;
-    margin: 0 auto 2rem;
-  }
+  .success-state h3 { color: var(--purple); margin-bottom: 0.8rem; }
+  .success-state p { color: var(--gray); max-width: 480px; margin: 0 auto 2rem; }
 
   /* ===== FOOTER ===== */
   footer {
-    background: var(--purple-darkest);
-    color: rgba(255,255,255,0.65);
-    padding: 4rem 2rem 1.8rem;
+    background: var(--green-deep);
+    color: rgba(255,255,255,0.75);
+    padding: 3.5rem 2rem 1.8rem;
     position: relative;
     overflow: hidden;
   }
@@ -1018,18 +900,7 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--green-bright) 0%, var(--teal-bright) 50%, var(--purple-light) 100%);
-  }
-
-  /* Decorative corner shapes */
-  footer::after {
-    content: '';
-    position: absolute;
-    bottom: -50px; right: -50px;
-    width: 200px; height: 200px;
-    background: linear-gradient(135deg, var(--green) 0%, transparent 70%);
-    transform: rotate(45deg);
-    opacity: 0.25;
+    background: linear-gradient(90deg, var(--purple) 0%, var(--green) 100%);
   }
 
   .footer-inner {
@@ -1045,7 +916,7 @@
     gap: 3rem;
     margin-bottom: 2.5rem;
     padding-bottom: 2.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
   }
 
   .footer-block h5 {
@@ -1056,13 +927,10 @@
     font-weight: 800;
   }
 
-  .footer-block:nth-child(1) h5 { color: var(--green-light); }
-  .footer-block:nth-child(2) h5 { color: var(--purple-soft); }
+  .footer-block:nth-child(1) h5 { color: var(--purple-soft); }
+  .footer-block:nth-child(2) h5 { color: var(--green-light); }
 
-  .footer-block p {
-    font-size: 0.9rem;
-    line-height: 1.7;
-  }
+  .footer-block p { font-size: 0.9rem; line-height: 1.7; }
 
   .footer-block a {
     color: white;
@@ -1072,35 +940,38 @@
     transition: border-color 0.2s;
   }
 
-  .footer-block a:hover { border-color: var(--green-bright); }
+  .footer-block a:hover { border-color: var(--green-light); }
 
   .footer-bottom {
     text-align: center;
     font-size: 0.78rem;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.5);
     text-transform: uppercase;
     letter-spacing: 0.12em;
   }
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 900px) {
-    .handshake-decoration { display: none; }
-    .benefits-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
-    .pillars-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-    .pillar { border-left: none; border-top: 1px solid var(--border-light); padding-left: 0.5rem; padding-top: 1.5rem; }
-    .pillar:first-child { border-top: none; padding-top: 0; }
+    .benefits-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
+    .objectives-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
+    .objective { border-right: none; }
+    .objective:nth-child(odd) { border-right: 1px solid var(--border-light); }
+    .event-strip-inner { grid-template-columns: 1fr; gap: 1.2rem; }
   }
 
-  @media (max-width: 720px) {
+  @media (max-width: 680px) {
     .header-inner { flex-direction: column; gap: 1rem; padding: 1rem 1.2rem; }
     .brand-block { flex-wrap: wrap; justify-content: center; gap: 0.8rem; }
-    .brand-logo-img { height: 36px; }
-    .brand-info .name { font-size: 0.85rem; }
-    .hero { padding: 3rem 1.2rem 4rem; }
-    .hero-title h1 { font-size: clamp(2.6rem, 14vw, 4rem); }
-    .event-meta { grid-template-columns: 1fr; gap: 1.2rem; padding: 1.4rem; }
-    .event-meta-divider { width: 60%; height: 1px; margin: 0 auto; }
-    .benefits-band, .form-section, .pillars, footer { padding-left: 1.2rem; padding-right: 1.2rem; }
+    .brand-logo-img { height: 38px; }
+    .hero { padding: 2.5rem 1.2rem 3rem; }
+    .hero .leaf-tl, .hero .leaf-br { width: 100px; height: 140px; }
+    .hero-title h1 { font-size: clamp(2.4rem, 13vw, 3.6rem); }
+    .benefits-section, .objectives-section, .form-section { padding-left: 1.2rem; padding-right: 1.2rem; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .objectives-grid { grid-template-columns: 1fr; }
+    .objective { border-right: none !important; border-bottom: 1px solid var(--border-light); padding-bottom: 1rem; }
+    .objective:last-child { border-bottom: none; }
+    .event-strip { padding: 1.5rem 1.2rem; }
     .form-body { padding: 1.5rem; }
     .form-grid { grid-template-columns: 1fr; }
     .stepper { padding: 1rem; gap: 0.5rem; }
@@ -1110,9 +981,7 @@
     .form-actions { flex-direction: column-reverse; }
     .btn { width: 100%; justify-content: center; }
     .btn-spacer { display: none; }
-    .promo-pill { padding: 0.8rem 1.2rem; font-size: 0.85rem; }
-    .hero-tagline { font-size: 1rem; }
-    .hero-tagline .sep { margin: 0 0.3rem; }
+    .benefits-pill { padding: 0.85rem 1.5rem; font-size: 0.9rem; }
   }
 </style>
 </head>
@@ -1122,19 +991,19 @@
 <header>
   <div class="header-inner">
     <div class="brand-block">
-      <div class="brand fenagri">
-        <img src="FENAGRILOGO-BDLHWw3m.png" alt="Logo FENAGRI" class="brand-logo-img">
-        <div class="brand-info">
-          <div class="name">FENAGRI</div>
-          <div class="sub" data-fr="Agro-alimentaire" data-en="Agri-food">Agro-alimentaire</div>
-        </div>
-      </div>
-      <div class="brand-divider"></div>
       <div class="brand anapec">
         <img src="AN7BsVCmQ0y4SSzyr7k3nXLv7iOK0jQQ-_PiNq4xeOHFQV3Xb5rSTdFyY7qJ8z-AHcXX9KrgCK2WNowGUI6jlFl2HRvCWPud-e4eYlY45HO9luZCqP6TOODaRc31A9DSbsuyw6aAav2ZxGL7ho5Wavj3NZ4AFxN-AkUfNfgIiqUq3rkfjkkXgXS91kRdRbmzBtXHA6fQ1gNjS8jfFI49=w200" alt="Logo ANAPEC" class="brand-logo-img">
         <div class="brand-info">
           <div class="name">ANAPEC</div>
           <div class="sub" data-fr="L'accompagnement engagé" data-en="Committed support">L'accompagnement engagé</div>
+        </div>
+      </div>
+      <div class="brand-divider"></div>
+      <div class="brand fenagri">
+        <img src="FENAGRILOGO-BDLHWw3m.png" alt="Logo FENAGRI" class="brand-logo-img">
+        <div class="brand-info">
+          <div class="name">FENAGRI</div>
+          <div class="sub" data-fr="Agro-alimentaire" data-en="Agri-food">Agro-alimentaire</div>
         </div>
       </div>
     </div>
@@ -1148,35 +1017,27 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="diamond-pattern tl"></div>
-  <div class="diamond-pattern br"></div>
 
-  <!-- Handshake decoration (SVG matches the poster's outlined handshake) -->
-  <svg class="handshake-decoration" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="handGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#22a866;stop-opacity:1" />
-        <stop offset="50%" style="stop-color:#1abc9c;stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#8e3cdb;stop-opacity:1" />
-      </linearGradient>
-    </defs>
-    <!-- Stylized handshake -->
-    <g fill="none" stroke="url(#handGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <!-- Left forearm + hand -->
-      <path d="M 20 130 L 60 110 L 85 100 L 100 105 L 110 115 L 105 125 L 90 135 L 70 140 L 50 145 L 30 145 Z"/>
-      <!-- Right forearm + hand -->
-      <path d="M 180 130 L 140 110 L 115 100 L 100 105 L 90 115 L 95 125 L 110 135 L 130 140 L 150 145 L 170 145 Z"/>
-      <!-- Group of people above -->
-      <circle cx="70" cy="55" r="10"/>
-      <path d="M 55 85 Q 55 70 70 70 Q 85 70 85 85"/>
-      <circle cx="100" cy="48" r="12"/>
-      <path d="M 82 82 Q 82 65 100 65 Q 118 65 118 82"/>
-      <circle cx="130" cy="55" r="10"/>
-      <path d="M 115 85 Q 115 70 130 70 Q 145 70 145 85"/>
-    </g>
-  </svg>
+  <div class="leaf-decoration leaf-tl">
+    <svg viewBox="0 0 160 220" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 10 20 Q 50 5 90 30 Q 120 60 100 100 Q 60 90 30 70 Q 5 50 10 20 Z" fill="#6A1B6D" opacity="0.85"/>
+      <path d="M 5 90 Q 45 75 85 100 Q 115 130 95 170 Q 55 160 25 140 Q 0 120 5 90 Z" fill="#649F47" opacity="0.85"/>
+      <path d="M 0 160 Q 35 150 65 175 Q 80 200 55 220 Q 25 210 0 195 Z" fill="#6A1B6D" opacity="0.7"/>
+    </svg>
+  </div>
+
+  <div class="dot-pattern dot-pattern-tr"></div>
+
+  <div class="leaf-decoration leaf-br">
+    <svg viewBox="0 0 180 240" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 20 30 Q 60 15 100 40 Q 130 70 110 110 Q 70 100 40 80 Q 15 60 20 30 Z" fill="#649F47" opacity="0.85"/>
+      <path d="M 10 100 Q 55 85 95 115 Q 130 145 105 185 Q 60 175 30 155 Q 0 130 10 100 Z" fill="#6A1B6D" opacity="0.85"/>
+      <path d="M 5 170 Q 40 160 75 185 Q 90 215 65 235 Q 35 225 5 210 Z" fill="#649F47" opacity="0.7"/>
+    </svg>
+  </div>
 
   <div class="hero-inner">
+
     <div class="hero-eyebrow">
       <span class="line"></span>
       <span class="text" data-fr="FENAGRI à travers l'ANAPEC organise" data-en="FENAGRI through ANAPEC presents">
@@ -1187,182 +1048,237 @@
 
     <div class="hero-title">
       <h1>
-        <span class="line-1">AGRO</span>
-        <span class="line-2">CONNECT</span>
-        <span class="line-3">DAY</span>
+        <span class="word-agro">AGRO</span>
+        <span class="word-connect">CONNECT</span>
+        <span class="word-day">DAY</span>
       </h1>
     </div>
 
-    <p class="hero-tagline">
-      <span data-fr="Rencontrer" data-en="Meet">Rencontrer</span>
-      <span class="sep">•</span>
-      <span data-fr="Échanger" data-en="Exchange">Échanger</span>
-      <span class="sep">•</span>
-      <span data-fr="Recruter" data-en="Recruit">Recruter</span>
-      <span class="sep">•</span>
-      <span data-fr="Construire l'avenir" data-en="Build the future">Construire l'avenir</span>
+    <p class="hero-subtitle">
+      <span data-fr="Partenariat & échanges :" data-en="Partnership & exchange:">Partenariat & échanges :</span>
+      <span class="accent-purple" data-fr="Entreprise" data-en="Company">Entreprise</span>
+      —
+      <span class="accent-green" data-fr="Jeunes Talents" data-en="Young Talents">Jeunes Talents</span>
     </p>
 
-    <div class="promo-pill-wrap">
-      <div class="promo-pill">
-        <span data-fr="Recrutez les talents de demain," data-en="Recruit tomorrow's talent,">Recrutez les talents de demain,</span>
-        <span class="accent" data-fr="&nbsp;sans charges&nbsp;" data-en="&nbsp;without payroll taxes&nbsp;">&nbsp;sans charges&nbsp;</span>
-        <span data-fr="et en toute simplicité !" data-en="and with total simplicity!">et en toute simplicité !</span>
-      </div>
-    </div>
+    <p class="hero-tagline" data-fr="Former & connecter pour demain" data-en="Train & connect for tomorrow">
+      Former & connecter pour demain
+    </p>
 
-    <div class="event-meta">
-      <div class="event-meta-item">
-        <div class="event-meta-icon green">
-          <svg viewBox="0 0 24 24">
-            <rect x="3" y="4" width="18" height="18" rx="2"/>
-            <line x1="16" y1="2" x2="16" y2="6"/>
-            <line x1="8" y1="2" x2="8" y2="6"/>
-            <line x1="3" y1="10" x2="21" y2="10"/>
-          </svg>
-        </div>
-        <div>
-          <div class="event-meta-label" data-fr="Date" data-en="Date">Date</div>
-          <div class="event-meta-value" data-fr="10 JUIN 2025" data-en="JUNE 10, 2025">10 JUIN 2025</div>
-        </div>
-      </div>
-      <div class="event-meta-divider"></div>
-      <div class="event-meta-item">
-        <div class="event-meta-icon purple">
-          <svg viewBox="0 0 24 24">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
-        </div>
-        <div>
-          <div class="event-meta-label" data-fr="Lieu" data-en="Venue">Lieu</div>
-          <div class="event-meta-value">CETIA</div>
-          <div class="event-meta-sub" data-fr="Centre Technique des Industries Agro-alimentaires"
-               data-en="Technical Center for Agri-food Industries">
-            Centre Technique des Industries Agro-alimentaires
-          </div>
-        </div>
-      </div>
-    </div>
+    <p class="hero-description"
+       data-fr="Un nouveau dispositif de <strong class='purple'>l'ANAPEC</strong> en partenariat avec la <strong class='green'>FENAGRI</strong> pour faciliter le recrutement des jeunes non diplômés et soutenir les entreprises du secteur agroalimentaire."
+       data-en="A new initiative from <strong class='purple'>ANAPEC</strong> in partnership with <strong class='green'>FENAGRI</strong> to facilitate the hiring of young non-graduates and support companies in the agri-food sector.">
+      Un nouveau dispositif de <strong class="purple">l'ANAPEC</strong> en partenariat avec la <strong class="green">FENAGRI</strong> pour faciliter le recrutement des jeunes non diplômés et soutenir les entreprises du secteur agroalimentaire.
+    </p>
   </div>
 </section>
 
-<!-- BENEFITS BAND -->
-<section class="benefits-band">
+<!-- BENEFITS SECTION -->
+<section class="benefits-section">
   <div class="benefits-wrap">
-    <div class="benefits-intro">
-      <h2>
-        <span data-fr="Des avantages" data-en="Exclusive">Des avantages</span>
-        <span class="accent" data-fr="exclusifs" data-en="benefits">exclusifs</span>
-        <span data-fr="pour votre entreprise" data-en="for your company">pour votre entreprise</span>
-      </h2>
-      <p data-fr="Un dispositif fiscal et social inédit pour encourager l'embauche des jeunes talents non diplômés. Profitez d'exonérations massives et d'un accompagnement de l'État pour bâtir vos équipes de demain."
-         data-en="An unprecedented tax and social framework to encourage hiring young non-graduate talent. Benefit from massive exemptions and state support to build your teams of tomorrow.">
-        Un dispositif fiscal et social inédit pour encourager l'embauche des jeunes talents non diplômés. Profitez d'exonérations massives et d'un accompagnement de l'État pour bâtir vos équipes de demain.
-      </p>
+    <div class="benefits-pill-wrap">
+      <div class="benefits-pill" data-fr="Les avantages pour l'entreprise" data-en="Benefits for the company">
+        LES AVANTAGES POUR L'ENTREPRISE
+      </div>
     </div>
 
     <div class="benefits-card">
-      <div class="benefits-card-header" data-fr="Vos avantages en un coup d'œil" data-en="Your benefits at a glance">
-        Vos avantages en un coup d'œil
-      </div>
+      <div class="benefits-grid">
 
-      <div class="benefit-row">
-        <div class="benefit-check">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="0">
+              <circle cx="9" cy="7" r="3.5"/>
+              <circle cx="17" cy="8" r="2.5"/>
+              <path d="M3 18c0-3 2.5-5 6-5s6 2 6 5v2H3z"/>
+              <path d="M15 14c2 0 5 1.5 5 4v2h-4"/>
+            </svg>
+          </div>
+          <div class="benefit-text" data-fr="Exonération des charges CNSS" data-en="CNSS contributions exemption">
+            Exonération des charges CNSS
+          </div>
         </div>
-        <div class="benefit-text" data-fr="Exonération CNSS" data-en="CNSS exemption">Exonération CNSS</div>
-      </div>
 
-      <div class="benefit-row">
-        <div class="benefit-check">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="3 17 9 11 13 15 21 7"/>
+              <polyline points="14 7 21 7 21 14"/>
+            </svg>
+          </div>
+          <div class="benefit-text" data-fr="Exonération de l'IR" data-en="Income tax (IR) exemption">
+            Exonération de l'IR
+          </div>
         </div>
-        <div class="benefit-text" data-fr="Exonération IR" data-en="Income tax exemption">Exonération IR</div>
-      </div>
 
-      <div class="benefit-row">
-        <div class="benefit-check">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="0.5">
+              <path d="M12 3L2 9l10 6 8-4.8V17h2V9zM6 13.5V17c0 1.5 3 3 6 3s6-1.5 6-3v-3.5l-6 3.6z"/>
+            </svg>
+          </div>
+          <div class="benefit-text" data-fr="Exonération de la Taxe de Formation Professionnelle (TFP)" data-en="Vocational Training Tax (TFP) exemption">
+            Exonération de la Taxe de Formation Professionnelle (TFP)
+          </div>
         </div>
-        <div class="benefit-text" data-fr="Exonération TFP" data-en="TFP exemption">Exonération TFP</div>
-      </div>
 
-      <div class="benefit-row">
-        <div class="benefit-check">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 8L9 4l-3 8H2"/>
+            </svg>
+          </div>
+          <div class="benefit-text" data-fr="Prise en charge de l'AMO par l'État" data-en="Health insurance (AMO) covered by the State">
+            Prise en charge de l'AMO par l'État
+          </div>
         </div>
-        <div class="benefit-text" data-fr="Prise en charge de l'AMO par l'État"
-             data-en="Health insurance (AMO) covered by the State">
-          Prise en charge de l'AMO par l'État
-        </div>
-      </div>
 
-      <div class="benefit-row">
-        <div class="benefit-check">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <div class="benefit-text" data-fr="Prolongation des exonérations en cas d'embauche en CDI"
-             data-en="Extended exemptions when hiring on a permanent contract">
-          Prolongation des exonérations en cas d'embauche en CDI
-        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- THREE PILLARS -->
-<section class="pillars">
-  <div class="pillars-grid">
-    <div class="pillar">
-      <div class="pillar-icon">
-        <svg viewBox="0 0 24 24">
-          <path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/>
-        </svg>
-      </div>
-      <h4 data-fr="Pour les entreprises" data-en="For companies">Pour les entreprises</h4>
-      <p data-fr="Recrutez des jeunes talents <strong>sans diplôme</strong> et bénéficiez d'avantages fiscaux et sociaux exceptionnels."
-         data-en="Recruit young talent <strong>without diplomas</strong> and enjoy exceptional tax and social benefits.">
-        Recrutez des jeunes talents <strong>sans diplôme</strong> et bénéficiez d'avantages fiscaux et sociaux exceptionnels.
-      </p>
+<!-- OBJECTIVES SECTION -->
+<section class="objectives-section">
+  <div class="objectives-wrap">
+
+    <div class="objectives-header">
+      <span class="line"></span>
+      <h3 data-fr="L'objectif du programme" data-en="Program objective">L'objectif du programme</h3>
+      <span class="line"></span>
     </div>
 
-    <div class="pillar">
-      <div class="pillar-icon">
-        <svg viewBox="0 0 24 24">
-          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-          <circle cx="9" cy="7" r="4"/>
-          <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+    <div class="objectives-grid">
+
+      <div class="objective">
+        <div class="objective-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0.5">
+            <circle cx="9" cy="7" r="3"/>
+            <circle cx="17" cy="8" r="2.2"/>
+            <path d="M3 18c0-2.5 2.5-4.5 6-4.5s6 2 6 4.5v2H3z"/>
+            <path d="M15 14c2 0 4.5 1.3 4.5 3.5v2.5H16"/>
+          </svg>
+        </div>
+        <div class="objective-text" data-fr="Donner une première opportunité aux jeunes sans diplôme" data-en="Give a first opportunity to non-graduate youth">
+          Donner une première opportunité aux jeunes sans diplôme
+        </div>
+      </div>
+
+      <div class="objective">
+        <div class="objective-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0.5">
+            <path d="M3 12c2-1.5 4-2 6-1.5l3 1 3-1c2-0.5 4 0 6 1.5l-2 1.5c-1-0.5-2-0.8-3-0.5l-3 1c-0.5 0.2-1 0.2-1.5 0l-3-1c-1-0.3-2 0-3 0.5z"/>
+            <path d="M9 13l3 1 3-1" fill="none" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="objective-text" data-fr="Encourager les entreprises à recruter" data-en="Encourage companies to hire">
+          Encourager les entreprises à recruter
+        </div>
+      </div>
+
+      <div class="objective">
+        <div class="objective-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0.5" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/>
+          </svg>
+        </div>
+        <div class="objective-text" data-fr="Valoriser les compétences pratiques même sans diplôme" data-en="Value practical skills even without diplomas">
+          Valoriser les compétences pratiques même sans diplôme
+        </div>
+      </div>
+
+      <div class="objective">
+        <div class="objective-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0.5">
+            <rect x="3" y="14" width="3.5" height="7"/>
+            <rect x="8.5" y="10" width="3.5" height="11"/>
+            <rect x="14" y="6" width="3.5" height="15"/>
+            <path d="M2 9l5-5 4 4 6-6 4 4" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="17 2 21 2 21 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="objective-text" data-fr="Répondre aux besoins des secteurs qui recrutent sur le savoir-faire" data-en="Meet the needs of sectors hiring on know-how">
+          Répondre aux besoins des secteurs qui recrutent sur le savoir-faire
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EVENT STRIP -->
+<section class="event-strip">
+  <div class="event-strip-inner">
+    <div class="event-tagline">
+      <div class="megaphone-icon">
+        <svg viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="0.5">
+          <path d="M3 11v2c0 0.5 0.5 1 1 1h2l5 4V6L6 10H4c-0.5 0-1 0.5-1 1z"/>
+          <path d="M14 8c2 2 2 6 0 8M17 5c3 3 3 11 0 14" fill="none" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </div>
-      <h4 data-fr="Pour les jeunes" data-en="For young people">Pour les jeunes</h4>
-      <p data-fr="Une <strong>première expérience</strong> professionnelle, une formation sur le terrain et des opportunités d'intégration."
-         data-en="A first professional experience, on-the-job training, and integration opportunities.">
-        Une <strong>première expérience</strong> professionnelle, une formation sur le terrain et des opportunités d'intégration.
-      </p>
+      <div class="event-tagline-text">
+        <span class="top" data-fr="Ensemble, ouvrons le champ des possibles" data-en="Together, let's open up new possibilities">
+          Ensemble, ouvrons le champ des possibles
+        </span>
+        <span class="bottom" data-fr="Pour l'emploi des jeunes et la compétitivité de nos entreprises !" data-en="For youth employment and our companies' competitiveness!">
+          Pour l'emploi des jeunes et la compétitivité de nos entreprises !
+        </span>
+      </div>
     </div>
 
-    <div class="pillar">
-      <div class="pillar-icon">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/>
+    <div class="event-info">
+      <div class="event-info-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2"/>
+          <line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="8" y1="2" x2="8" y2="6"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
         </svg>
       </div>
-      <h4 data-fr="Pour l'avenir" data-en="For the future">Pour l'avenir</h4>
-      <p data-fr="Valorisons les <strong>compétences pratiques</strong> et répondons ensemble aux besoins des secteurs qui recrutent."
-         data-en="Let's value practical skills and meet the needs of recruiting sectors together.">
-        Valorisons les <strong>compétences pratiques</strong> et répondons ensemble aux besoins des secteurs qui recrutent.
-      </p>
+      <div>
+        <div class="event-info-label" data-fr="10 Juin 2026" data-en="June 10, 2026">10 Juin 2026</div>
+        <div class="event-info-sub" data-fr="Date" data-en="Date">Date</div>
+      </div>
+    </div>
+
+    <div class="event-info">
+      <div class="event-info-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+      </div>
+      <div>
+        <div class="event-info-label">CETIA</div>
+        <div class="event-info-sub" data-fr="Centre Technique des Industries Agro-alimentaires" data-en="Agri-food Industries Technical Center">
+          Centre Technique des Industries Agro-alimentaires
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- FORM SECTION -->
 <section class="form-section" id="inscription">
+
+  <div class="leaf-decoration leaf-tl">
+    <svg viewBox="0 0 130 180" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 5 20 Q 35 5 65 25 Q 90 50 75 85 Q 45 80 20 65 Q 0 45 5 20 Z" fill="#6A1B6D" opacity="0.5"/>
+      <path d="M 0 80 Q 30 65 60 90 Q 85 120 70 155 Q 40 145 15 130 Q 0 110 0 80 Z" fill="#649F47" opacity="0.5"/>
+    </svg>
+  </div>
+
+  <div class="leaf-decoration leaf-br">
+    <svg viewBox="0 0 150 200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 15 25 Q 50 10 80 35 Q 105 65 90 100 Q 55 90 30 75 Q 10 55 15 25 Z" fill="#649F47" opacity="0.5"/>
+      <path d="M 5 90 Q 40 75 70 105 Q 95 135 80 170 Q 50 160 20 145 Q 0 120 5 90 Z" fill="#6A1B6D" opacity="0.5"/>
+    </svg>
+  </div>
+
   <div class="form-intro">
     <div class="eyebrow" data-fr="Inscription" data-en="Registration">Inscription</div>
     <h2>
-      <span data-fr="Réservez votre place à l'" data-en="Reserve your spot at the ">Réservez votre place à l'</span><span class="accent">AGRO CONNECT DAY</span>
+      <span class="purple" data-fr="Réservez votre place à l'" data-en="Reserve your spot at ">Réservez votre place à l'</span><span class="green">AGRO CONNECT DAY</span>
     </h2>
     <p data-fr="Remplissez le formulaire ci-dessous pour exprimer votre intérêt. Nos équipes vous recontacteront dans les plus brefs délais."
        data-en="Fill out the form below to express your interest. Our teams will get back to you as soon as possible.">
@@ -1373,13 +1289,12 @@
   <div class="form-wrap">
     <div class="form-card">
 
-      <!-- Stepper -->
       <div class="stepper">
         <div class="step active" data-step="1">
           <div class="step-num">1</div>
           <div class="step-info">
             <div class="step-label" data-fr="Étape 1" data-en="Step 1">Étape 1</div>
-            <div class="step-title" data-fr="Informations entreprise" data-en="Company information">Informations entreprise</div>
+            <div class="step-title" data-fr="Informations entreprise" data-en="Company info">Informations entreprise</div>
           </div>
         </div>
         <div class="step" data-step="2">
@@ -1393,7 +1308,6 @@
 
       <div class="form-body">
 
-        <!-- ===== PAGE 1 ===== -->
         <div class="form-page active" data-page="1">
           <h3 data-fr="Informations sur l'entreprise" data-en="Company information">
             Informations sur l'entreprise
@@ -1406,39 +1320,25 @@
 
           <div class="form-grid">
             <div class="field full">
-              <label for="entreprise" data-fr="Entreprise" data-en="Company">
-                Entreprise<span class="req">*</span>
-              </label>
+              <label for="entreprise" data-fr="Entreprise" data-en="Company">Entreprise<span class="req">*</span></label>
               <input type="text" id="entreprise" name="entreprise" required
-                     data-fr-placeholder="Nom de l'entreprise"
-                     data-en-placeholder="Company name"
-                     placeholder="Nom de l'entreprise" />
+                     data-fr-placeholder="Nom de l'entreprise" data-en-placeholder="Company name" placeholder="Nom de l'entreprise" />
             </div>
 
             <div class="field">
-              <label for="contact-name" data-fr="Nom du contact entreprise" data-en="Company contact name">
-                Nom du contact entreprise<span class="req">*</span>
-              </label>
+              <label for="contact-name" data-fr="Nom du contact entreprise" data-en="Company contact name">Nom du contact entreprise<span class="req">*</span></label>
               <input type="text" id="contact-name" name="contact-name" required
-                     data-fr-placeholder="Prénom et nom"
-                     data-en-placeholder="First and last name"
-                     placeholder="Prénom et nom" />
+                     data-fr-placeholder="Prénom et nom" data-en-placeholder="First and last name" placeholder="Prénom et nom" />
             </div>
 
             <div class="field">
-              <label for="contact-role" data-fr="Fonction du contact" data-en="Contact's job title">
-                Fonction du contact<span class="req">*</span>
-              </label>
+              <label for="contact-role" data-fr="Fonction du contact" data-en="Contact's job title">Fonction du contact<span class="req">*</span></label>
               <input type="text" id="contact-role" name="contact-role" required
-                     data-fr-placeholder="Ex : Directeur RH"
-                     data-en-placeholder="E.g. HR Director"
-                     placeholder="Ex : Directeur RH" />
+                     data-fr-placeholder="Ex : Directeur RH" data-en-placeholder="E.g. HR Director" placeholder="Ex : Directeur RH" />
             </div>
 
             <div class="field">
-              <label for="phone" data-fr="N° GSM ou Tél" data-en="Phone number">
-                N° GSM ou Tél<span class="req">*</span>
-              </label>
+              <label for="phone" data-fr="N° GSM ou Tél" data-en="Phone number">N° GSM ou Tél<span class="req">*</span></label>
               <input type="tel" id="phone" name="phone" required placeholder="+212 6 00 00 00 00" />
             </div>
 
@@ -1448,19 +1348,13 @@
             </div>
 
             <div class="field">
-              <label for="ville" data-fr="Ville" data-en="City">
-                Ville<span class="req">*</span>
-              </label>
+              <label for="ville" data-fr="Ville" data-en="City">Ville<span class="req">*</span></label>
               <input type="text" id="ville" name="ville" required
-                     data-fr-placeholder="Ex : Casablanca"
-                     data-en-placeholder="E.g. Casablanca"
-                     placeholder="Ex : Casablanca" />
+                     data-fr-placeholder="Ex : Casablanca" data-en-placeholder="E.g. Casablanca" placeholder="Ex : Casablanca" />
             </div>
 
             <div class="field">
-              <label for="region" data-fr="Région" data-en="Region">
-                Région<span class="req">*</span>
-              </label>
+              <label for="region" data-fr="Région" data-en="Region">Région<span class="req">*</span></label>
               <select id="region" name="region" required>
                 <option value="" data-fr="-- Sélectionner --" data-en="-- Select --">-- Sélectionner --</option>
                 <option value="casablanca-settat">Casablanca-Settat</option>
@@ -1480,19 +1374,17 @@
             </div>
 
             <div class="field full">
-              <label for="secteur" data-fr="Secteur d'activité" data-en="Sector">
-                Secteur d'activité<span class="req">*</span>
-              </label>
+              <label for="secteur" data-fr="Secteur d'activité" data-en="Sector">Secteur d'activité<span class="req">*</span></label>
               <select id="secteur" name="secteur" required>
                 <option value="" data-fr="-- Sélectionner --" data-en="-- Select --">-- Sélectionner --</option>
-                <option value="ntic" data-fr="NTIC / Offshoring" data-en="ICT / Offshoring">NTIC / Offshoring</option>
+                <option value="agroalimentaire" data-fr="Agroalimentaire" data-en="Agri-food">Agroalimentaire</option>
                 <option value="agriculture" data-fr="Agriculture" data-en="Agriculture">Agriculture</option>
+                <option value="ntic" data-fr="NTIC / Offshoring" data-en="ICT / Offshoring">NTIC / Offshoring</option>
                 <option value="construction" data-fr="Construction" data-en="Construction">Construction</option>
                 <option value="tourisme" data-fr="Tourisme" data-en="Tourism">Tourisme</option>
                 <option value="commerce" data-fr="Commerce et distribution" data-en="Trade and distribution">Commerce et distribution</option>
                 <option value="automobile" data-fr="Automobile" data-en="Automotive">Automobile</option>
                 <option value="textile" data-fr="Textile" data-en="Textile">Textile</option>
-                <option value="agroalimentaire" data-fr="Agroalimentaire" data-en="Agri-food">Agroalimentaire</option>
                 <option value="aeronautique" data-fr="Aéronautique" data-en="Aeronautics">Aéronautique</option>
                 <option value="enseignement" data-fr="Enseignement" data-en="Education">Enseignement</option>
                 <option value="sante" data-fr="Santé" data-en="Health">Santé</option>
@@ -1520,17 +1412,12 @@
 
           <div class="form-actions">
             <div class="btn-spacer"></div>
-            <button class="btn btn-primary" id="next-btn" data-fr="Suivant →" data-en="Next →">
-              Suivant →
-            </button>
+            <button class="btn btn-primary" id="next-btn" data-fr="Suivant →" data-en="Next →">Suivant →</button>
           </div>
         </div>
 
-        <!-- ===== PAGE 2 ===== -->
         <div class="form-page" data-page="2">
-          <h3 data-fr="Contact FENAGRI" data-en="FENAGRI Contact">
-            Contact FENAGRI
-          </h3>
+          <h3 data-fr="Contact FENAGRI" data-en="FENAGRI Contact">Contact FENAGRI</h3>
           <p class="page-desc"
              data-fr="Dernière étape : précisez si vous souhaitez être contacté par la FENAGRI et l'objet de votre demande."
              data-en="Last step: indicate whether you wish to be contacted by FENAGRI and the purpose of your request.">
@@ -1568,46 +1455,31 @@
             </div>
 
             <div class="field full" id="autre-field" style="display:none;">
-              <label for="autre-precision" data-fr="Précisez" data-en="Please specify">
-                Précisez
-              </label>
+              <label for="autre-precision" data-fr="Précisez" data-en="Please specify">Précisez</label>
               <textarea id="autre-precision" name="autre-precision" rows="3"
-                        data-fr-placeholder="Décrivez votre besoin..."
-                        data-en-placeholder="Describe your need..."
-                        placeholder="Décrivez votre besoin..."></textarea>
+                        data-fr-placeholder="Décrivez votre besoin..." data-en-placeholder="Describe your need..." placeholder="Décrivez votre besoin..."></textarea>
             </div>
           </div>
 
           <div class="form-actions">
-            <button class="btn btn-secondary" id="back-btn" data-fr="← Retour" data-en="← Back">
-              ← Retour
-            </button>
+            <button class="btn btn-secondary" id="back-btn" data-fr="← Retour" data-en="← Back">← Retour</button>
             <div class="btn-spacer"></div>
-            <button class="btn btn-primary" id="submit-btn" data-fr="Soumettre ✓" data-en="Submit ✓">
-              Soumettre ✓
-            </button>
+            <button class="btn btn-primary" id="submit-btn" data-fr="Soumettre ✓" data-en="Submit ✓">Soumettre ✓</button>
           </div>
         </div>
 
-        <!-- ===== SUCCESS ===== -->
         <div class="form-page" data-page="3">
           <div class="success-state">
             <div class="success-icon">
-              <svg viewBox="0 0 24 24">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             </div>
-            <h3 data-fr="Merci pour votre inscription !" data-en="Thank you for your registration!">
-              Merci pour votre inscription !
-            </h3>
+            <h3 data-fr="Merci pour votre inscription !" data-en="Thank you for your registration!">Merci pour votre inscription !</h3>
             <p data-fr="Votre demande a bien été transmise à la FENAGRI et l'ANAPEC. Nos équipes vous recontacteront dans les plus brefs délais."
                data-en="Your request has been sent to FENAGRI and ANAPEC. Our teams will get back to you as soon as possible.">
               Votre demande a bien été transmise à la FENAGRI et l'ANAPEC. Nos équipes vous recontacteront dans les plus brefs délais.
             </p>
             <button class="btn btn-secondary" id="restart-btn"
-                    data-fr="Soumettre une autre demande" data-en="Submit another request">
-              Soumettre une autre demande
-            </button>
+                    data-fr="Soumettre une autre demande" data-en="Submit another request">Soumettre une autre demande</button>
           </div>
         </div>
 
@@ -1621,30 +1493,29 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-block">
-        <h5>FENAGRI</h5>
-        <p data-fr="Fédération Nationale de l'Agro-alimentaire. Pour en savoir plus : "
-           data-en="National Federation of Agri-food Industries. Learn more: ">
-          Fédération Nationale de l'Agro-alimentaire. Pour en savoir plus :
-        </p>
-        <p><a href="https://www.fenagri.org" target="_blank">www.fenagri.org</a></p>
-      </div>
-      <div class="footer-block">
         <h5>ANAPEC</h5>
-        <p data-fr="Agence Nationale de Promotion de l'Emploi et des Compétences. Pour en savoir plus : "
-           data-en="National Agency for the Promotion of Employment and Skills. Learn more: ">
-          Agence Nationale de Promotion de l'Emploi et des Compétences. Pour en savoir plus :
+        <p data-fr="Agence Nationale de Promotion de l'Emploi et des Compétences."
+           data-en="National Agency for the Promotion of Employment and Skills.">
+          Agence Nationale de Promotion de l'Emploi et des Compétences.
         </p>
         <p><a href="https://www.anapec.org" target="_blank">www.anapec.org</a></p>
       </div>
+      <div class="footer-block">
+        <h5>FENAGRI</h5>
+        <p data-fr="Fédération Nationale de l'Agro-alimentaire."
+           data-en="National Federation of Agri-food Industries.">
+          Fédération Nationale de l'Agro-alimentaire.
+        </p>
+        <p><a href="https://www.fenagri.org" target="_blank">www.fenagri.org</a></p>
+      </div>
     </div>
     <div class="footer-bottom">
-      © 2026 · FENAGRI × ANAPEC · <span data-fr="Tous droits réservés" data-en="All rights reserved">Tous droits réservés</span>
+      © 2026 · ANAPEC × FENAGRI · <span data-fr="Tous droits réservés" data-en="All rights reserved">Tous droits réservés</span>
     </div>
   </div>
 </footer>
 
 <script>
-  // ===== Language toggle =====
   const langButtons = document.querySelectorAll('.lang-toggle button');
   let currentLang = 'fr';
 
@@ -1655,7 +1526,7 @@
     document.querySelectorAll('[data-fr]').forEach(el => {
       const text = el.getAttribute('data-' + lang);
       if (text !== null) {
-        if (text.includes('<') || el.tagName === 'P' && el.innerHTML.includes('<strong>')) {
+        if (text.includes('<')) {
           el.innerHTML = text;
         } else {
           el.textContent = text;
@@ -1675,7 +1546,6 @@
     btn.addEventListener('click', () => setLang(btn.dataset.lang));
   });
 
-  // ===== Multi-step form =====
   const pages = document.querySelectorAll('.form-page');
   const steps = document.querySelectorAll('.step');
   const nextBtn = document.getElementById('next-btn');
@@ -1725,17 +1595,9 @@
     return valid;
   }
 
-  nextBtn.addEventListener('click', () => {
-    if (validatePage(1)) showPage(2);
-  });
-
+  nextBtn.addEventListener('click', () => { if (validatePage(1)) showPage(2); });
   backBtn.addEventListener('click', () => showPage(1));
-
-  submitBtn.addEventListener('click', () => {
-    if (validatePage(2)) {
-      showPage(3);
-    }
-  });
+  submitBtn.addEventListener('click', () => { if (validatePage(2)) showPage(3); });
 
   restartBtn.addEventListener('click', () => {
     document.querySelectorAll('input, select, textarea').forEach(el => {
