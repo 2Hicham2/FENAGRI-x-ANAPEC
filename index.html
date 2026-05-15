@@ -3,49 +3,79 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ANAPEC × FENAGRI — Ouverture du Contrat aux non diplômés</title>
+<title>AGRO CONNECT DAY — FENAGRI × ANAPEC · 10 Juin 2025</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Archivo+Black&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green-deep: #0a5c3e;
-    --green: #137a4f;
-    --green-light: #e6f2ec;
-    --red: #c1272d;
-    --gold: #d4a93a;
-    --cream: #faf7f0;
-    --ink: #1a2e25;
-    --gray: #6b7770;
-    --border: #e0d9c8;
+    /* ANAPEC purple */
+    --purple-darkest: #1a0533;
+    --purple-deep: #2d0a5c;
+    --purple: #4a1593;
+    --purple-mid: #6b21c9;
+    --purple-light: #8e3cdb;
+    --purple-soft: #b072e8;
+
+    /* FENAGRI green */
+    --green-deep: #0e5c3a;
+    --green: #1a8552;
+    --green-bright: #22a866;
+    --green-light: #4dc97e;
+    --green-soft: #8fdcab;
+
+    /* Teal — the bridge between green and purple */
+    --teal-deep: #0e7a6a;
+    --teal: #16a085;
+    --teal-bright: #1abc9c;
+    --teal-light: #5dd4b8;
+
+    /* Neutrals */
+    --cream: #f5f1ec;
     --white: #ffffff;
+    --ink: #1a0533;
+    --gray: #6b5a7a;
+    --border: rgba(255,255,255,0.12);
+    --border-light: #e3ddec;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Inter', sans-serif;
-    background: var(--cream);
-    color: var(--ink);
+    font-family: 'Manrope', sans-serif;
+    background: var(--purple-darkest);
+    color: var(--white);
     line-height: 1.6;
     min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ===== DIAMOND PATTERN (corner decoration like poster) ===== */
+  .diamond-pattern {
+    position: absolute;
+    width: 180px;
+    height: 200px;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.18) 1.2px, transparent 1.5px);
+    background-size: 14px 14px;
+    pointer-events: none;
+    opacity: 0.7;
   }
 
   /* ===== HEADER ===== */
   header {
     background: var(--white);
-    border-bottom: 3px solid var(--green-deep);
-    padding: 1rem 2rem;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    border-bottom: 1px solid var(--border-light);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   }
 
   .header-inner {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 1.1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -55,67 +85,54 @@
   .brand-block {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.2rem;
   }
 
   .brand {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.8rem;
   }
 
-  .brand-logo {
-    width: 44px;
-    height: 44px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    color: white;
-    font-size: 0.85rem;
-    letter-spacing: 0.02em;
-  }
   .brand-logo-img {
-    height: 50px;
+    height: 44px;
     width: auto;
     object-fit: contain;
     display: block;
   }
 
-  .brand-logo.anapec {
-    background: linear-gradient(135deg, var(--green-deep), var(--green));
-  }
-
-  .brand-logo.fenagri {
-    background: linear-gradient(135deg, var(--gold), #b8902c);
-  }
-
   .brand-info .name {
-    font-weight: 700;
+    font-weight: 800;
     font-size: 0.95rem;
     color: var(--ink);
     line-height: 1.1;
+    letter-spacing: 0.02em;
   }
 
   .brand-info .sub {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: var(--gray);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-top: 2px;
+    letter-spacing: 0.12em;
+    margin-top: 3px;
+    font-weight: 600;
   }
+
+  /* FENAGRI side accent */
+  .brand.fenagri .sub { color: var(--green); }
+  /* ANAPEC side accent */
+  .brand.anapec .sub { color: var(--purple-mid); }
 
   .brand-divider {
     width: 1px;
-    height: 32px;
-    background: var(--border);
+    height: 36px;
+    background: var(--border-light);
   }
 
-  /* Language toggle */
   .lang-toggle {
     display: flex;
-    background: var(--green-light);
+    background: #f3edfa;
+    border: 1px solid var(--border-light);
     border-radius: 999px;
     padding: 4px;
     gap: 2px;
@@ -127,154 +144,563 @@
     padding: 0.5rem 1.1rem;
     border-radius: 999px;
     font-family: inherit;
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-size: 0.78rem;
+    font-weight: 700;
     cursor: pointer;
-    color: var(--green-deep);
+    color: var(--gray);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     transition: all 0.25s;
   }
 
   .lang-toggle button.active {
-    background: var(--green-deep);
+    background: linear-gradient(135deg, var(--green-bright) 0%, var(--purple-mid) 100%);
     color: white;
-    box-shadow: 0 2px 6px rgba(10, 92, 62, 0.25);
+    box-shadow: 0 2px 10px rgba(34, 168, 102, 0.4);
   }
 
-  /* ===== HERO ===== */
+  /* ===== HERO (the poster-style banner) ===== */
   .hero {
     position: relative;
-    padding: 4rem 2rem 3rem;
-    text-align: center;
-    background:
-      radial-gradient(ellipse at top, rgba(19, 122, 79, 0.08) 0%, transparent 60%),
-      var(--cream);
+    padding: 4rem 2rem 5rem;
     overflow: hidden;
+    background:
+      radial-gradient(ellipse 55% 50% at 15% 25%, rgba(26, 133, 82, 0.55) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 55% at 85% 75%, rgba(142, 60, 219, 0.5) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 30% at 50% 50%, rgba(22, 160, 133, 0.25) 0%, transparent 70%),
+      linear-gradient(135deg, var(--green-deep) 0%, var(--purple-deep) 50%, var(--purple-darkest) 100%);
   }
 
+  /* Faint factory/industrial texture overlay */
   .hero::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 100%;
+    inset: 0;
     background-image:
-      radial-gradient(circle at 15% 30%, rgba(212, 169, 58, 0.06) 0%, transparent 25%),
-      radial-gradient(circle at 85% 70%, rgba(193, 39, 45, 0.04) 0%, transparent 30%);
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
     pointer-events: none;
   }
 
+  .hero .diamond-pattern.tl { top: 80px; left: 30px; }
+  .hero .diamond-pattern.br { bottom: 30px; right: 30px; }
+
   .hero-inner {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     position: relative;
+    z-index: 2;
   }
 
   .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    background: white;
-    border: 1px solid var(--border);
-    padding: 0.5rem 1.1rem;
-    border-radius: 999px;
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--green-deep);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-eyebrow::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    background: var(--red);
-    border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.6; transform: scale(1.3); }
-  }
-
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 600;
-    font-size: clamp(2rem, 5vw, 3.6rem);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    margin-bottom: 1.2rem;
-    color: var(--ink);
-  }
-
-  .hero h1 em {
-    color: var(--green-deep);
-    font-style: italic;
-  }
-
-  .hero-sub {
-    font-size: 1.1rem;
-    color: var(--gray);
-    max-width: 640px;
-    margin: 0 auto 2rem;
-  }
-
-  .hero-meta {
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 2.5rem;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px dashed var(--border);
-  }
-
-  .meta-item {
+    gap: 1rem;
+    margin-bottom: 1.8rem;
     text-align: center;
   }
 
-  .meta-item .label {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--gray);
-    margin-bottom: 0.4rem;
+  .hero-eyebrow .line {
+    height: 2px;
+    width: 50px;
+    background: linear-gradient(90deg, var(--green-bright), var(--teal), var(--purple-light));
   }
 
-  .meta-item .value {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    color: var(--green-deep);
-    font-weight: 600;
+  .hero-eyebrow .text {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+  }
+
+  /* Main poster title */
+  .hero-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .hero-title h1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3.2rem, 9vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+
+  .hero-title .line-1,
+  .hero-title .line-2,
+  .hero-title .line-3 {
+    display: block;
+  }
+
+  .hero-title .line-1 { color: white; }
+
+  /* CONNECT — gradient: green (FENAGRI) → teal → purple (ANAPEC) */
+  .hero-title .line-2 {
+    background: linear-gradient(90deg,
+      var(--green-bright) 0%,
+      var(--teal-bright) 35%,
+      var(--purple-mid) 70%,
+      var(--purple-light) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .hero-title .line-3 {
+    color: white;
+    position: relative;
+  }
+
+  .hero-title .line-3::after {
+    content: '';
+    display: block;
+    width: 110px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--green-bright), var(--teal), var(--purple-light));
+    margin: 0.8rem auto 0;
+    border-radius: 2px;
+  }
+
+  /* Handshake decorative icon */
+  .handshake-decoration {
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    transform: translateY(-50%);
+    width: 220px;
+    height: 220px;
+    opacity: 0.65;
+    pointer-events: none;
+    filter: drop-shadow(0 0 30px rgba(244, 123, 32, 0.4));
+  }
+
+  .hero-tagline {
+    text-align: center;
+    font-size: clamp(1.05rem, 2vw, 1.4rem);
+    color: rgba(255,255,255,0.92);
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
+
+  .hero-tagline .sep {
+    color: var(--teal-light);
+    margin: 0 0.6rem;
+    font-weight: 800;
+  }
+
+  /* Promo pill */
+  .promo-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.95);
+    color: var(--purple-deep);
+    padding: 0.9rem 1.8rem;
+    border-radius: 999px;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    font-weight: 700;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  }
+
+  .promo-pill-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+
+  .promo-pill .accent {
+    color: var(--green);
+    margin: 0 4px;
+    font-weight: 800;
+  }
+
+  /* Event meta strip (date + venue, poster bottom) */
+  .event-meta {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    padding: 1.8rem 2rem;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(8px);
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .event-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .event-meta-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-bright) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: 0 4px 18px rgba(22, 160, 133, 0.4);
+  }
+
+  .event-meta-icon.green {
+    background: linear-gradient(135deg, var(--green) 0%, var(--green-bright) 100%);
+    box-shadow: 0 4px 18px rgba(34, 168, 102, 0.45);
+  }
+
+  .event-meta-icon.purple {
+    background: linear-gradient(135deg, var(--purple) 0%, var(--purple-mid) 100%);
+    box-shadow: 0 4px 18px rgba(107, 33, 201, 0.5);
+  }
+
+  .event-meta-icon svg {
+    width: 26px;
+    height: 26px;
+    stroke: white;
+    stroke-width: 2;
+    fill: none;
+  }
+
+  .event-meta-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--green-soft);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .event-meta-item:nth-child(3) .event-meta-label {
+    color: var(--purple-soft);
+  }
+
+  .event-meta-value {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.35rem;
+    color: white;
+    line-height: 1;
+    letter-spacing: 0.02em;
+  }
+
+  .event-meta-sub {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.7);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  .event-meta-divider {
+    width: 1px;
+    height: 60px;
+    background: rgba(255,255,255,0.2);
+  }
+
+  /* ===== BENEFITS BAND ===== */
+  .benefits-band {
+    background:
+      radial-gradient(ellipse 50% 60% at 10% 50%, rgba(26, 133, 82, 0.2) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 90% 50%, rgba(107, 33, 201, 0.25) 0%, transparent 60%),
+      linear-gradient(180deg, var(--purple-darkest) 0%, var(--purple-deep) 100%);
+    padding: 5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .benefits-band::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -10%; right: -10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--green-bright), var(--teal-bright), var(--purple-light), transparent);
+  }
+
+  .benefits-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+
+  .benefits-intro h2 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+    line-height: 1.05;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    color: white;
+  }
+
+  .benefits-intro h2 .accent {
+    color: var(--teal-light);
+    display: block;
+  }
+
+  .benefits-intro p {
+    color: rgba(255,255,255,0.75);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 460px;
+  }
+
+  .benefits-card {
+    background: linear-gradient(160deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  }
+
+  .benefits-card-header {
+    background: linear-gradient(90deg, var(--green) 0%, var(--teal) 50%, var(--purple-mid) 100%);
+    color: white;
+    padding: 0.9rem 1.4rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    box-shadow: 0 6px 20px rgba(74, 21, 147, 0.35);
+  }
+
+  .benefit-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px dashed rgba(255,255,255,0.08);
+  }
+
+  .benefit-row:last-child { border-bottom: none; }
+
+  .benefit-check {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--green-bright) 0%, var(--teal) 50%, var(--purple-mid) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 10px rgba(22, 160, 133, 0.35);
+  }
+
+  .benefit-check svg {
+    width: 16px;
+    height: 16px;
+    stroke: white;
+    stroke-width: 3;
+    fill: none;
+  }
+
+  .benefit-text {
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  /* ===== THREE PILLARS (POUR LES ENTREPRISES / JEUNES / AVENIR) ===== */
+  .pillars {
+    background: var(--cream);
+    color: var(--ink);
+    padding: 4rem 2rem;
+    position: relative;
+  }
+
+  .pillars::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--green-bright) 0%, var(--teal-bright) 50%, var(--purple-light) 100%);
+  }
+
+  .pillars-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .pillar {
+    padding: 1.5rem 0.5rem;
+    border-left: 1px solid var(--border-light);
+    padding-left: 1.8rem;
+  }
+
+  .pillar:first-child { border-left: none; padding-left: 0.5rem; }
+
+  .pillar-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  /* Each pillar gets its own brand color */
+  .pillar:nth-child(1) .pillar-icon {
+    background: linear-gradient(135deg, var(--green) 0%, var(--green-bright) 100%);
+    box-shadow: 0 4px 16px rgba(26, 133, 82, 0.3);
+  }
+  .pillar:nth-child(2) .pillar-icon {
+    background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal-bright) 100%);
+    box-shadow: 0 4px 16px rgba(22, 160, 133, 0.3);
+  }
+  .pillar:nth-child(3) .pillar-icon {
+    background: linear-gradient(135deg, var(--purple) 0%, var(--purple-mid) 100%);
+    box-shadow: 0 4px 16px rgba(74, 21, 147, 0.3);
+  }
+
+  .pillar-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: white;
+    stroke-width: 2;
+    fill: none;
+  }
+
+  .pillar h4 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.6rem;
+  }
+
+  /* Heading color matches the icon */
+  .pillar:nth-child(1) h4 { color: var(--green-deep); }
+  .pillar:nth-child(2) h4 { color: var(--teal-deep); }
+  .pillar:nth-child(3) h4 { color: var(--purple-deep); }
+
+  .pillar p {
+    color: var(--gray);
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  .pillar p strong {
+    color: var(--ink);
+    font-weight: 700;
   }
 
   /* ===== FORM SECTION ===== */
   .form-section {
-    padding: 3rem 2rem 5rem;
+    background: linear-gradient(180deg, var(--purple-darkest) 0%, var(--purple-deep) 100%);
+    padding: 5rem 2rem 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .form-section::before {
+    content: '';
+    position: absolute;
+    top: 20%; left: -20%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(26, 133, 82, 0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .form-section::after {
+    content: '';
+    position: absolute;
+    bottom: 10%; right: -15%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(142, 60, 219, 0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .form-intro {
+    max-width: 760px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .form-intro .eyebrow {
+    display: inline-block;
+    background: linear-gradient(90deg, rgba(34, 168, 102, 0.2), rgba(22, 160, 133, 0.2), rgba(142, 60, 219, 0.2));
+    color: white;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.2rem;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .form-intro h2 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  .form-intro h2 .accent { color: var(--teal-light); }
+
+  .form-intro p {
+    color: rgba(255,255,255,0.75);
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .form-wrap {
     max-width: 760px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
   }
 
   .form-card {
     background: white;
-    border-radius: 16px;
+    border-radius: 20px;
     box-shadow:
-      0 1px 3px rgba(0,0,0,0.04),
-      0 12px 40px rgba(10, 92, 62, 0.08);
+      0 20px 60px rgba(0,0,0,0.4),
+      0 0 0 1px rgba(255,255,255,0.05);
     overflow: hidden;
-    border: 1px solid var(--border);
+    color: var(--ink);
   }
 
-  /* Step indicator */
   .stepper {
     display: flex;
-    background: linear-gradient(135deg, var(--green-deep), var(--green));
-    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, var(--green-deep) 0%, var(--green) 30%, var(--purple) 70%, var(--purple-deep) 100%);
+    padding: 1.6rem 2rem;
     gap: 1rem;
     color: white;
+    position: relative;
+  }
+
+  .stepper::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--green-bright) 0%, var(--teal-bright) 50%, var(--purple-light) 100%);
   }
 
   .step {
@@ -282,27 +708,22 @@
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    opacity: 0.55;
+    opacity: 0.5;
     transition: opacity 0.3s;
   }
 
-  .step.active {
-    opacity: 1;
-  }
-
-  .step.completed {
-    opacity: 0.85;
-  }
+  .step.active { opacity: 1; }
+  .step.completed { opacity: 0.85; }
 
   .step-num {
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.15);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 700;
+    font-weight: 800;
     font-size: 0.9rem;
     border: 2px solid rgba(255,255,255,0.3);
     flex-shrink: 0;
@@ -310,31 +731,32 @@
   }
 
   .step.active .step-num {
-    background: white;
-    color: var(--green-deep);
+    background: linear-gradient(135deg, var(--green-bright) 0%, var(--teal-bright) 100%);
+    color: white;
     border-color: white;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.18);
   }
 
   .step.completed .step-num {
-    background: var(--gold);
-    color: var(--ink);
-    border-color: var(--gold);
+    background: white;
+    color: var(--purple-deep);
+    border-color: white;
   }
 
   .step-info .step-label {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     opacity: 0.8;
+    font-weight: 600;
   }
 
   .step-info .step-title {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.95rem;
     margin-top: 2px;
   }
 
-  /* Form body */
   .form-body {
     padding: 2.5rem;
   }
@@ -344,21 +766,24 @@
     animation: fadeIn 0.4s ease;
   }
 
-  .form-page.active {
-    display: block;
-  }
+  .form-page.active { display: block; }
 
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .form-page h2 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 600;
-    font-size: 1.6rem;
-    color: var(--ink);
-    margin-bottom: 0.3rem;
+  .form-page h3 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.5rem;
+    color: var(--purple-deep);
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    background: linear-gradient(90deg, var(--green-deep) 0%, var(--purple-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .form-page .page-desc {
@@ -366,7 +791,7 @@
     font-size: 0.95rem;
     margin-bottom: 2rem;
     padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--border-light);
   }
 
   .form-grid {
@@ -375,26 +800,20 @@
     gap: 1.2rem;
   }
 
-  .field {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .field.full {
-    grid-column: 1 / -1;
-  }
+  .field { display: flex; flex-direction: column; }
+  .field.full { grid-column: 1 / -1; }
 
   .field label {
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--ink);
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #2a5d4f;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.07em;
     margin-bottom: 0.5rem;
   }
 
   .field label .req {
-    color: var(--red);
+    color: var(--purple-mid);
     margin-left: 2px;
   }
 
@@ -404,9 +823,9 @@
     font-family: inherit;
     font-size: 0.95rem;
     padding: 0.85rem 1rem;
-    border: 1.5px solid var(--border);
-    border-radius: 8px;
-    background: var(--cream);
+    border: 1.5px solid var(--border-light);
+    border-radius: 10px;
+    background: #fbf9fc;
     color: var(--ink);
     transition: all 0.2s;
     width: 100%;
@@ -416,30 +835,24 @@
   .field select:focus,
   .field textarea:focus {
     outline: none;
-    border-color: var(--green);
+    border-color: var(--teal);
     background: white;
-    box-shadow: 0 0 0 4px rgba(19, 122, 79, 0.1);
+    box-shadow: 0 0 0 4px rgba(22, 160, 133, 0.15);
   }
 
   .field select {
     cursor: pointer;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236b7770' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2316a085' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 1rem center;
     padding-right: 2.5rem;
   }
 
-  /* Radio buttons */
-  .radio-group {
-    display: flex;
-    gap: 0.8rem;
-  }
+  /* Radio */
+  .radio-group { display: flex; gap: 0.8rem; }
 
-  .radio-option {
-    flex: 1;
-    position: relative;
-  }
+  .radio-option { flex: 1; position: relative; }
 
   .radio-option input[type="radio"] {
     position: absolute;
@@ -453,9 +866,9 @@
     justify-content: center;
     gap: 0.5rem;
     padding: 0.85rem 1rem;
-    background: var(--cream);
-    border: 1.5px solid var(--border);
-    border-radius: 8px;
+    background: #fbf9fc;
+    border: 1.5px solid var(--border-light);
+    border-radius: 10px;
     cursor: pointer;
     font-weight: 600;
     font-size: 0.9rem;
@@ -470,41 +883,41 @@
     content: '';
     width: 18px;
     height: 18px;
-    border: 2px solid var(--border);
+    border: 2px solid var(--border-light);
     border-radius: 50%;
     background: white;
     transition: all 0.2s;
   }
 
   .radio-option input[type="radio"]:checked + label {
-    border-color: var(--green);
-    background: var(--green-light);
-    color: var(--green-deep);
+    border-color: var(--teal);
+    background: linear-gradient(135deg, #e8f5ef 0%, #f0e8f7 100%);
+    color: #2a5d4f;
   }
 
   .radio-option input[type="radio"]:checked + label::before {
-    border-color: var(--green-deep);
-    background: var(--green-deep);
+    border-color: var(--green-bright);
+    background: linear-gradient(135deg, var(--green-bright) 0%, var(--purple-mid) 100%);
     box-shadow: inset 0 0 0 3px white;
   }
 
-  /* Form actions */
+  /* Actions */
   .form-actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 2.5rem;
     padding-top: 2rem;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--border-light);
     gap: 1rem;
   }
 
   .btn {
     font-family: inherit;
-    font-weight: 600;
-    font-size: 0.9rem;
-    padding: 0.9rem 1.8rem;
-    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 0.95rem 1.9rem;
+    border-radius: 10px;
     border: none;
     cursor: pointer;
     transition: all 0.2s;
@@ -512,49 +925,55 @@
     align-items: center;
     gap: 0.5rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
   }
 
   .btn-primary {
-    background: linear-gradient(135deg, var(--green-deep), var(--green));
+    background: linear-gradient(135deg, var(--green) 0%, var(--teal) 50%, var(--purple-mid) 100%);
     color: white;
-    box-shadow: 0 4px 12px rgba(10, 92, 62, 0.25);
+    box-shadow: 0 6px 20px rgba(74, 21, 147, 0.35);
+    background-size: 200% 100%;
+    background-position: 0% 50%;
+    transition: all 0.4s ease;
   }
 
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(10, 92, 62, 0.35);
+    background-position: 100% 50%;
+    box-shadow: 0 10px 28px rgba(22, 160, 133, 0.4);
   }
 
   .btn-secondary {
-    background: var(--cream);
-    color: var(--ink);
-    border: 1.5px solid var(--border);
+    background: linear-gradient(135deg, #f0f5f2 0%, #f3edfa 100%);
+    color: var(--purple-deep);
+    border: 1.5px solid var(--border-light);
   }
 
   .btn-secondary:hover {
-    border-color: var(--green);
+    border-color: var(--teal);
     color: var(--green-deep);
+    background: linear-gradient(135deg, #e8f5ef 0%, #ede5f7 100%);
   }
 
   .btn-spacer { flex: 1; }
 
-  /* Success state */
+  /* Success */
   .success-state {
     text-align: center;
     padding: 2rem 0;
   }
 
   .success-icon {
-    width: 80px;
-    height: 80px;
+    width: 86px;
+    height: 86px;
     margin: 0 auto 1.5rem;
-    background: var(--green-light);
+    background: linear-gradient(135deg, var(--green-bright) 0%, var(--teal) 50%, var(--purple-mid) 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     animation: scaleIn 0.5s ease;
+    box-shadow: 0 10px 30px rgba(74, 21, 147, 0.4);
   }
 
   @keyframes scaleIn {
@@ -563,17 +982,20 @@
   }
 
   .success-icon svg {
-    width: 40px;
-    height: 40px;
-    stroke: var(--green-deep);
+    width: 44px;
+    height: 44px;
+    stroke: white;
     stroke-width: 3;
+    fill: none;
   }
 
   .success-state h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    color: var(--ink);
+    color: var(--purple-deep);
     margin-bottom: 0.8rem;
+    background: linear-gradient(90deg, var(--green-deep) 0%, var(--purple-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .success-state p {
@@ -582,60 +1004,39 @@
     margin: 0 auto 2rem;
   }
 
-  /* ===== INFO STRIP ===== */
-  .info-strip {
-    background: var(--white);
-    border-top: 1px solid var(--border);
-    padding: 3rem 2rem;
-  }
-
-  .info-grid {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-
-  .info-item {
-    text-align: center;
-    padding: 1rem;
-  }
-
-  .info-item .icon {
-    width: 48px;
-    height: 48px;
-    margin: 0 auto 1rem;
-    background: var(--green-light);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-  }
-
-  .info-item h4 {
-    font-weight: 700;
-    color: var(--ink);
-    margin-bottom: 0.4rem;
-    font-size: 1rem;
-  }
-
-  .info-item p {
-    color: var(--gray);
-    font-size: 0.9rem;
-  }
-
   /* ===== FOOTER ===== */
   footer {
-    background: var(--ink);
-    color: rgba(255,255,255,0.7);
-    padding: 3rem 2rem 1.5rem;
+    background: var(--purple-darkest);
+    color: rgba(255,255,255,0.65);
+    padding: 4rem 2rem 1.8rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  footer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--green-bright) 0%, var(--teal-bright) 50%, var(--purple-light) 100%);
+  }
+
+  /* Decorative corner shapes */
+  footer::after {
+    content: '';
+    position: absolute;
+    bottom: -50px; right: -50px;
+    width: 200px; height: 200px;
+    background: linear-gradient(135deg, var(--green) 0%, transparent 70%);
+    transform: rotate(45deg);
+    opacity: 0.25;
   }
 
   .footer-inner {
     max-width: 1100px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
   }
 
   .footer-top {
@@ -648,12 +1049,15 @@
   }
 
   .footer-block h5 {
-    color: white;
     font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     margin-bottom: 1rem;
+    font-weight: 800;
   }
+
+  .footer-block:nth-child(1) h5 { color: var(--green-light); }
+  .footer-block:nth-child(2) h5 { color: var(--purple-soft); }
 
   .footer-block p {
     font-size: 0.9rem;
@@ -661,36 +1065,54 @@
   }
 
   .footer-block a {
-    color: var(--gold);
+    color: white;
     text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    transition: border-color 0.2s;
   }
 
-  .footer-block a:hover { text-decoration: underline; }
+  .footer-block a:hover { border-color: var(--green-bright); }
 
   .footer-bottom {
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: rgba(255,255,255,0.4);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
   }
 
-  /* Responsive */
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .handshake-decoration { display: none; }
+    .benefits-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+    .pillars-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .pillar { border-left: none; border-top: 1px solid var(--border-light); padding-left: 0.5rem; padding-top: 1.5rem; }
+    .pillar:first-child { border-top: none; padding-top: 0; }
+  }
+
   @media (max-width: 720px) {
-    .header-inner { flex-direction: column; gap: 1rem; }
-    .brand-block { flex-wrap: wrap; justify-content: center; }
-    .form-grid { grid-template-columns: 1fr; }
+    .header-inner { flex-direction: column; gap: 1rem; padding: 1rem 1.2rem; }
+    .brand-block { flex-wrap: wrap; justify-content: center; gap: 0.8rem; }
+    .brand-logo-img { height: 36px; }
+    .brand-info .name { font-size: 0.85rem; }
+    .hero { padding: 3rem 1.2rem 4rem; }
+    .hero-title h1 { font-size: clamp(2.6rem, 14vw, 4rem); }
+    .event-meta { grid-template-columns: 1fr; gap: 1.2rem; padding: 1.4rem; }
+    .event-meta-divider { width: 60%; height: 1px; margin: 0 auto; }
+    .benefits-band, .form-section, .pillars, footer { padding-left: 1.2rem; padding-right: 1.2rem; }
     .form-body { padding: 1.5rem; }
+    .form-grid { grid-template-columns: 1fr; }
     .stepper { padding: 1rem; gap: 0.5rem; }
     .step-info .step-label { display: none; }
-    .step-info .step-title { font-size: 0.8rem; }
-    .info-grid { grid-template-columns: 1fr; }
-    .footer-top { grid-template-columns: 1fr; }
-    .hero { padding: 2.5rem 1.5rem 2rem; }
+    .step-info .step-title { font-size: 0.78rem; }
+    .footer-top { grid-template-columns: 1fr; gap: 2rem; }
     .form-actions { flex-direction: column-reverse; }
     .btn { width: 100%; justify-content: center; }
     .btn-spacer { display: none; }
-    .brand-logo-img{height: 40px;}
+    .promo-pill { padding: 0.8rem 1.2rem; font-size: 0.85rem; }
+    .hero-tagline { font-size: 1rem; }
+    .hero-tagline .sep { margin: 0 0.3rem; }
   }
 </style>
 </head>
@@ -700,19 +1122,19 @@
 <header>
   <div class="header-inner">
     <div class="brand-block">
-      <div class="brand">
-        <img src="AN7BsVCmQ0y4SSzyr7k3nXLv7iOK0jQQ-_PiNq4xeOHFQV3Xb5rSTdFyY7qJ8z-AHcXX9KrgCK2WNowGUI6jlFl2HRvCWPud-e4eYlY45HO9luZCqP6TOODaRc31A9DSbsuyw6aAav2ZxGL7ho5Wavj3NZ4AFxN-AkUfNfgIiqUq3rkfjkkXgXS91kRdRbmzBtXHA6fQ1gNjS8jfFI49=w200" alt="Logo ANAPEC" class="brand-logo-img">
-        <div class="brand-info">
-          <div class="name">ANAPEC</div>
-          <div class="sub" data-fr="Agence Nationale" data-en="National Agency">Agence Nationale</div>
-        </div>
-      </div>
-      <div class="brand-divider"></div>
-      <div class="brand">
+      <div class="brand fenagri">
         <img src="FENAGRILOGO-BDLHWw3m.png" alt="Logo FENAGRI" class="brand-logo-img">
         <div class="brand-info">
           <div class="name">FENAGRI</div>
           <div class="sub" data-fr="Agro-alimentaire" data-en="Agri-food">Agro-alimentaire</div>
+        </div>
+      </div>
+      <div class="brand-divider"></div>
+      <div class="brand anapec">
+        <img src="AN7BsVCmQ0y4SSzyr7k3nXLv7iOK0jQQ-_PiNq4xeOHFQV3Xb5rSTdFyY7qJ8z-AHcXX9KrgCK2WNowGUI6jlFl2HRvCWPud-e4eYlY45HO9luZCqP6TOODaRc31A9DSbsuyw6aAav2ZxGL7ho5Wavj3NZ4AFxN-AkUfNfgIiqUq3rkfjkkXgXS91kRdRbmzBtXHA6fQ1gNjS8jfFI49=w200" alt="Logo ANAPEC" class="brand-logo-img">
+        <div class="brand-info">
+          <div class="name">ANAPEC</div>
+          <div class="sub" data-fr="L'accompagnement engagé" data-en="Committed support">L'accompagnement engagé</div>
         </div>
       </div>
     </div>
@@ -726,314 +1148,470 @@
 
 <!-- HERO -->
 <section class="hero">
+  <div class="diamond-pattern tl"></div>
+  <div class="diamond-pattern br"></div>
+
+  <!-- Handshake decoration (SVG matches the poster's outlined handshake) -->
+  <svg class="handshake-decoration" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="handGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#22a866;stop-opacity:1" />
+        <stop offset="50%" style="stop-color:#1abc9c;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#8e3cdb;stop-opacity:1" />
+      </linearGradient>
+    </defs>
+    <!-- Stylized handshake -->
+    <g fill="none" stroke="url(#handGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Left forearm + hand -->
+      <path d="M 20 130 L 60 110 L 85 100 L 100 105 L 110 115 L 105 125 L 90 135 L 70 140 L 50 145 L 30 145 Z"/>
+      <!-- Right forearm + hand -->
+      <path d="M 180 130 L 140 110 L 115 100 L 100 105 L 90 115 L 95 125 L 110 135 L 130 140 L 150 145 L 170 145 Z"/>
+      <!-- Group of people above -->
+      <circle cx="70" cy="55" r="10"/>
+      <path d="M 55 85 Q 55 70 70 70 Q 85 70 85 85"/>
+      <circle cx="100" cy="48" r="12"/>
+      <path d="M 82 82 Q 82 65 100 65 Q 118 65 118 82"/>
+      <circle cx="130" cy="55" r="10"/>
+      <path d="M 115 85 Q 115 70 130 70 Q 145 70 145 85"/>
+    </g>
+  </svg>
+
   <div class="hero-inner">
-    <div class="hero-eyebrow" data-fr="Initiative ANAPEC × FENAGRI" data-en="ANAPEC × FENAGRI Initiative">
-      Initiative ANAPEC × FENAGRI
+    <div class="hero-eyebrow">
+      <span class="line"></span>
+      <span class="text" data-fr="FENAGRI à travers l'ANAPEC organise" data-en="FENAGRI through ANAPEC presents">
+        FENAGRI à travers l'ANAPEC organise
+      </span>
+      <span class="line"></span>
     </div>
-    <h1 data-fr='Ouverture du Contrat <em>aux non diplômés</em>' data-en='Opening the Contract <em>to non-graduates</em>'>
-      Ouverture du Contrat <em>aux non diplômés</em>
-    </h1>
-    <p class="hero-sub"
-       data-fr="Un programme conjoint ANAPEC et FENAGRI pour faciliter le recrutement des talents non diplômés dans le secteur agro-alimentaire et au-delà. Remplissez le formulaire ci-dessous pour exprimer votre intérêt."
-       data-en="A joint ANAPEC and FENAGRI program to facilitate the recruitment of non-graduate talent in the agri-food sector and beyond. Fill out the form below to express your interest.">
-      Un programme conjoint ANAPEC et FENAGRI pour faciliter le recrutement des talents non diplômés dans le secteur agro-alimentaire et au-delà. Remplissez le formulaire ci-dessous pour exprimer votre intérêt.
+
+    <div class="hero-title">
+      <h1>
+        <span class="line-1">AGRO</span>
+        <span class="line-2">CONNECT</span>
+        <span class="line-3">DAY</span>
+      </h1>
+    </div>
+
+    <p class="hero-tagline">
+      <span data-fr="Rencontrer" data-en="Meet">Rencontrer</span>
+      <span class="sep">•</span>
+      <span data-fr="Échanger" data-en="Exchange">Échanger</span>
+      <span class="sep">•</span>
+      <span data-fr="Recruter" data-en="Recruit">Recruter</span>
+      <span class="sep">•</span>
+      <span data-fr="Construire l'avenir" data-en="Build the future">Construire l'avenir</span>
     </p>
 
-    <div class="hero-meta">
-      <div class="meta-item">
-        <div class="label" data-fr="Programme" data-en="Program">Programme</div>
-        <div class="value" data-fr="National" data-en="National">National</div>
+    <div class="promo-pill-wrap">
+      <div class="promo-pill">
+        <span data-fr="Recrutez les talents de demain," data-en="Recruit tomorrow's talent,">Recrutez les talents de demain,</span>
+        <span class="accent" data-fr="&nbsp;sans charges&nbsp;" data-en="&nbsp;without payroll taxes&nbsp;">&nbsp;sans charges&nbsp;</span>
+        <span data-fr="et en toute simplicité !" data-en="and with total simplicity!">et en toute simplicité !</span>
       </div>
-      <div class="meta-item">
-        <div class="label" data-fr="Secteurs" data-en="Sectors">Secteurs</div>
-        <div class="value" data-fr="Multi-sectoriel" data-en="Multi-sector">Multi-sectoriel</div>
+    </div>
+
+    <div class="event-meta">
+      <div class="event-meta-item">
+        <div class="event-meta-icon green">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="4" width="18" height="18" rx="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+        </div>
+        <div>
+          <div class="event-meta-label" data-fr="Date" data-en="Date">Date</div>
+          <div class="event-meta-value" data-fr="10 JUIN 2025" data-en="JUNE 10, 2025">10 JUIN 2025</div>
+        </div>
       </div>
-      <div class="meta-item">
-        <div class="label" data-fr="Horizon" data-en="Horizon">Horizon</div>
-        <div class="value">2026</div>
+      <div class="event-meta-divider"></div>
+      <div class="event-meta-item">
+        <div class="event-meta-icon purple">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div>
+          <div class="event-meta-label" data-fr="Lieu" data-en="Venue">Lieu</div>
+          <div class="event-meta-value">CETIA</div>
+          <div class="event-meta-sub" data-fr="Centre Technique des Industries Agro-alimentaires"
+               data-en="Technical Center for Agri-food Industries">
+            Centre Technique des Industries Agro-alimentaires
+          </div>
+        </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS BAND -->
+<section class="benefits-band">
+  <div class="benefits-wrap">
+    <div class="benefits-intro">
+      <h2>
+        <span data-fr="Des avantages" data-en="Exclusive">Des avantages</span>
+        <span class="accent" data-fr="exclusifs" data-en="benefits">exclusifs</span>
+        <span data-fr="pour votre entreprise" data-en="for your company">pour votre entreprise</span>
+      </h2>
+      <p data-fr="Un dispositif fiscal et social inédit pour encourager l'embauche des jeunes talents non diplômés. Profitez d'exonérations massives et d'un accompagnement de l'État pour bâtir vos équipes de demain."
+         data-en="An unprecedented tax and social framework to encourage hiring young non-graduate talent. Benefit from massive exemptions and state support to build your teams of tomorrow.">
+        Un dispositif fiscal et social inédit pour encourager l'embauche des jeunes talents non diplômés. Profitez d'exonérations massives et d'un accompagnement de l'État pour bâtir vos équipes de demain.
+      </p>
+    </div>
+
+    <div class="benefits-card">
+      <div class="benefits-card-header" data-fr="Vos avantages en un coup d'œil" data-en="Your benefits at a glance">
+        Vos avantages en un coup d'œil
+      </div>
+
+      <div class="benefit-row">
+        <div class="benefit-check">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="benefit-text" data-fr="Exonération CNSS" data-en="CNSS exemption">Exonération CNSS</div>
+      </div>
+
+      <div class="benefit-row">
+        <div class="benefit-check">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="benefit-text" data-fr="Exonération IR" data-en="Income tax exemption">Exonération IR</div>
+      </div>
+
+      <div class="benefit-row">
+        <div class="benefit-check">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="benefit-text" data-fr="Exonération TFP" data-en="TFP exemption">Exonération TFP</div>
+      </div>
+
+      <div class="benefit-row">
+        <div class="benefit-check">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="benefit-text" data-fr="Prise en charge de l'AMO par l'État"
+             data-en="Health insurance (AMO) covered by the State">
+          Prise en charge de l'AMO par l'État
+        </div>
+      </div>
+
+      <div class="benefit-row">
+        <div class="benefit-check">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="benefit-text" data-fr="Prolongation des exonérations en cas d'embauche en CDI"
+             data-en="Extended exemptions when hiring on a permanent contract">
+          Prolongation des exonérations en cas d'embauche en CDI
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THREE PILLARS -->
+<section class="pillars">
+  <div class="pillars-grid">
+    <div class="pillar">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/>
+        </svg>
+      </div>
+      <h4 data-fr="Pour les entreprises" data-en="For companies">Pour les entreprises</h4>
+      <p data-fr="Recrutez des jeunes talents <strong>sans diplôme</strong> et bénéficiez d'avantages fiscaux et sociaux exceptionnels."
+         data-en="Recruit young talent <strong>without diplomas</strong> and enjoy exceptional tax and social benefits.">
+        Recrutez des jeunes talents <strong>sans diplôme</strong> et bénéficiez d'avantages fiscaux et sociaux exceptionnels.
+      </p>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+      <h4 data-fr="Pour les jeunes" data-en="For young people">Pour les jeunes</h4>
+      <p data-fr="Une <strong>première expérience</strong> professionnelle, une formation sur le terrain et des opportunités d'intégration."
+         data-en="A first professional experience, on-the-job training, and integration opportunities.">
+        Une <strong>première expérience</strong> professionnelle, une formation sur le terrain et des opportunités d'intégration.
+      </p>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/>
+        </svg>
+      </div>
+      <h4 data-fr="Pour l'avenir" data-en="For the future">Pour l'avenir</h4>
+      <p data-fr="Valorisons les <strong>compétences pratiques</strong> et répondons ensemble aux besoins des secteurs qui recrutent."
+         data-en="Let's value practical skills and meet the needs of recruiting sectors together.">
+        Valorisons les <strong>compétences pratiques</strong> et répondons ensemble aux besoins des secteurs qui recrutent.
+      </p>
     </div>
   </div>
 </section>
 
 <!-- FORM SECTION -->
-<section class="form-section">
-  <div class="form-card">
-
-    <!-- Stepper -->
-    <div class="stepper">
-      <div class="step active" data-step="1">
-        <div class="step-num">1</div>
-        <div class="step-info">
-          <div class="step-label" data-fr="Étape 1" data-en="Step 1">Étape 1</div>
-          <div class="step-title" data-fr="Informations entreprise" data-en="Company information">Informations entreprise</div>
-        </div>
-      </div>
-      <div class="step" data-step="2">
-        <div class="step-num">2</div>
-        <div class="step-info">
-          <div class="step-label" data-fr="Étape 2" data-en="Step 2">Étape 2</div>
-          <div class="step-title" data-fr="Contact ANAPEC" data-en="ANAPEC contact">Contact ANAPEC</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-body">
-
-      <!-- ===== PAGE 1 ===== -->
-      <div class="form-page active" data-page="1">
-        <h2 data-fr="Informations sur l'entreprise" data-en="Company information">
-          Informations sur l'entreprise
-        </h2>
-        <p class="page-desc"
-           data-fr="Merci de renseigner les informations de votre entreprise. Les champs marqués d'un * sont obligatoires."
-           data-en="Please provide your company information. Fields marked with * are required.">
-          Merci de renseigner les informations de votre entreprise. Les champs marqués d'un * sont obligatoires.
-        </p>
-
-        <div class="form-grid">
-          <div class="field full">
-            <label for="entreprise" data-fr="Entreprise" data-en="Company">
-              Entreprise<span class="req">*</span>
-            </label>
-            <input type="text" id="entreprise" name="entreprise" required
-                   data-fr-placeholder="Nom de l'entreprise"
-                   data-en-placeholder="Company name"
-                   placeholder="Nom de l'entreprise" />
-          </div>
-
-          <div class="field">
-            <label for="contact-name" data-fr="Nom du contact" data-en="Contact name">
-              Nom du contact entreprise<span class="req">*</span>
-            </label>
-            <input type="text" id="contact-name" name="contact-name" required
-                   data-fr-placeholder="Prénom et nom"
-                   data-en-placeholder="First and last name"
-                   placeholder="Prénom et nom" />
-          </div>
-
-          <div class="field">
-            <label for="contact-role" data-fr="Fonction" data-en="Job title">
-              Fonction du contact<span class="req">*</span>
-            </label>
-            <input type="text" id="contact-role" name="contact-role" required
-                   data-fr-placeholder="Ex : Directeur RH"
-                   data-en-placeholder="E.g. HR Director"
-                   placeholder="Ex : Directeur RH" />
-          </div>
-
-          <div class="field">
-            <label for="phone" data-fr="N° GSM ou Tél" data-en="Phone number">
-              N° GSM ou Tél<span class="req">*</span>
-            </label>
-            <input type="tel" id="phone" name="phone" required placeholder="+212 6 00 00 00 00" />
-          </div>
-
-          <div class="field">
-            <label for="email">Email<span class="req">*</span></label>
-            <input type="email" id="email" name="email" required placeholder="contact@entreprise.ma" />
-          </div>
-
-          <div class="field">
-            <label for="ville" data-fr="Ville" data-en="City">
-              Ville<span class="req">*</span>
-            </label>
-            <input type="text" id="ville" name="ville" required
-                   data-fr-placeholder="Ex : Casablanca"
-                   data-en-placeholder="E.g. Casablanca"
-                   placeholder="Ex : Casablanca" />
-          </div>
-
-          <div class="field">
-            <label for="region" data-fr="Région" data-en="Region">
-              Région<span class="req">*</span>
-            </label>
-            <select id="region" name="region" required>
-              <option value="" data-fr="-- Sélectionner --" data-en="-- Select --">-- Sélectionner --</option>
-              <option value="casablanca-settat">Casablanca-Settat</option>
-              <option value="rabat-sale-kenitra">Rabat-Salé-Kénitra</option>
-              <option value="fes-meknes">Fès-Meknès</option>
-              <option value="marrakech-safi">Marrakech-Safi</option>
-              <option value="tanger-tetouan">Tanger-Tétouan-Al Hoceima</option>
-              <option value="souss-massa">Souss-Massa</option>
-              <option value="oriental">L'Oriental</option>
-              <option value="beni-mellal-khenifra">Beni Mellal-Khénifra</option>
-              <option value="draa-tafilalet">Drâa-Tafilalet</option>
-              <option value="guelmim-oued-noun">Guelmim-Oued Noun</option>
-              <option value="laayoune-sakia">Laâyoune-Sakia El Hamra</option>
-              <option value="dakhla-oued-eddahab">Dakhla-Oued Ed Dahab</option>
-              <option value="autre" data-fr="Autre" data-en="Other">Autre</option>
-            </select>
-          </div>
-
-          <div class="field full">
-            <label for="secteur" data-fr="Secteur d'activité" data-en="Sector">
-              Secteur d'activité<span class="req">*</span>
-            </label>
-            <select id="secteur" name="secteur" required>
-              <option value="" data-fr="-- Sélectionner --" data-en="-- Select --">-- Sélectionner --</option>
-              <option value="ntic" data-fr="NTIC / Offshoring" data-en="ICT / Offshoring">NTIC / Offshoring</option>
-              <option value="agriculture" data-fr="Agriculture" data-en="Agriculture">Agriculture</option>
-              <option value="construction" data-fr="Construction" data-en="Construction">Construction</option>
-              <option value="tourisme" data-fr="Tourisme" data-en="Tourism">Tourisme</option>
-              <option value="commerce" data-fr="Commerce et distribution" data-en="Trade and distribution">Commerce et distribution</option>
-              <option value="automobile" data-fr="Automobile" data-en="Automotive">Automobile</option>
-              <option value="textile" data-fr="Textile" data-en="Textile">Textile</option>
-              <option value="agroalimentaire" data-fr="Agroalimentaire" data-en="Agri-food">Agroalimentaire</option>
-              <option value="aeronautique" data-fr="Aéronautique" data-en="Aeronautics">Aéronautique</option>
-              <option value="enseignement" data-fr="Enseignement" data-en="Education">Enseignement</option>
-              <option value="sante" data-fr="Santé" data-en="Health">Santé</option>
-              <option value="artisanat" data-fr="Artisanat" data-en="Crafts">Artisanat</option>
-              <option value="autre" data-fr="Autre" data-en="Other">Autre</option>
-            </select>
-          </div>
-
-          <div class="field full">
-            <label data-fr="Avez-vous des projets de recrutement à fin 2026 ?" data-en="Do you have recruitment plans by end of 2026?">
-              Avez-vous des projets de recrutement à fin 2026 ?<span class="req">*</span>
-            </label>
-            <div class="radio-group">
-              <div class="radio-option">
-                <input type="radio" id="recrut-oui" name="recrutement" value="oui" required />
-                <label for="recrut-oui" data-fr="Oui" data-en="Yes">Oui</label>
-              </div>
-              <div class="radio-option">
-                <input type="radio" id="recrut-non" name="recrutement" value="non" required />
-                <label for="recrut-non" data-fr="Non" data-en="No">Non</label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-actions">
-          <div class="btn-spacer"></div>
-          <button class="btn btn-primary" id="next-btn" data-fr="Suivant →" data-en="Next →">
-            Suivant →
-          </button>
-        </div>
-      </div>
-
-      <!-- ===== PAGE 2 ===== -->
-      <div class="form-page" data-page="2">
-        <h2 data-fr="Contact FENAGRI" data-en="FENAGRI Contact">
-          Contact FENAGRI
-        </h2>
-        <p class="page-desc"
-           data-fr="Dernière étape : précisez si vous souhaitez être contacté par la FENAGRI et l'objet de votre demande."
-           data-en="Last step: indicate whether you wish to be contacted by FENAGRI and the purpose of your request.">
-          Dernière étape : précisez si vous souhaitez être contacté par la FENAGRI et l'objet de votre demande.
-        </p>
-
-        <div class="form-grid">
-          <div class="field full">
-            <label data-fr="Désirez-vous être contacté par la FENAGRI ?" data-en="Do you wish to be contacted by FENAGRI?">
-              Désirez-vous être contacté par la FENAGRI ?<span class="req">*</span>
-            </label>
-            <div class="radio-group">
-              <div class="radio-option">
-                <input type="radio" id="contact-oui" name="contact-fenagri" value="oui" required />
-                <label for="contact-oui" data-fr="Oui" data-en="Yes">Oui</label>
-              </div>
-              <div class="radio-option">
-                <input type="radio" id="contact-non" name="contact-fenagri" value="non" required />
-                <label for="contact-non" data-fr="Non" data-en="No">Non</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="field full">
-            <label for="objet" data-fr="Objet du besoin de contact FENAGRI" data-en="Purpose of FENAGRI contact request">
-              Objet du besoin de contact FENAGRI<span class="req">*</span>
-            </label>
-            <select id="objet" name="objet" required>
-              <option value="" data-fr="-- Sélectionner --" data-en="-- Select --">-- Sélectionner --</option>
-              <option value="info" data-fr="Demande d'informations" data-en="Request for information">Demande d'informations</option>
-              <option value="offre" data-fr="Traitement d'une offre d'emploi" data-en="Job offer processing">Traitement d'une offre d'emploi</option>
-              <option value="contrats" data-fr="Gestion des contrats FENAGRI" data-en="Management of FENAGRI contracts">Gestion des contrats FENAGRI</option>
-              <option value="autre" data-fr="Autre (préciser)" data-en="Other (specify)">Autre (préciser)</option>
-            </select>
-          </div>
-
-          <div class="field full" id="autre-field" style="display:none;">
-            <label for="autre-precision" data-fr="Précisez" data-en="Please specify">
-              Précisez
-            </label>
-            <textarea id="autre-precision" name="autre-precision" rows="3"
-                      data-fr-placeholder="Décrivez votre besoin..."
-                      data-en-placeholder="Describe your need..."
-                      placeholder="Décrivez votre besoin..."></textarea>
-          </div>
-        </div>
-
-        <div class="form-actions">
-          <button class="btn btn-secondary" id="back-btn" data-fr="← Retour" data-en="← Back">
-            ← Retour
-          </button>
-          <div class="btn-spacer"></div>
-          <button class="btn btn-primary" id="submit-btn" data-fr="Soumettre ✓" data-en="Submit ✓">
-            Soumettre ✓
-          </button>
-        </div>
-      </div>
-
-      <!-- ===== SUCCESS ===== -->
-      <div class="form-page" data-page="3">
-        <div class="success-state">
-          <div class="success-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-          </div>
-          <h3 data-fr="Merci pour votre inscription !" data-en="Thank you for your registration!">
-            Merci pour votre inscription !
-          </h3>
-          <p data-fr="Votre demande a bien été transmise à l'ANAPEC et FENAGRI. Nos équipes vous recontacteront dans les plus brefs délais."
-             data-en="Your request has been sent to ANAPEC and FENAGRI. Our teams will get back to you as soon as possible.">
-            Votre demande a bien été transmise à l'ANAPEC et FENAGRI. Nos équipes vous recontacteront dans les plus brefs délais.
-          </p>
-          <button class="btn btn-secondary" id="restart-btn"
-                  data-fr="Soumettre une autre demande" data-en="Submit another request">
-            Soumettre une autre demande
-          </button>
-        </div>
-      </div>
-
-    </div>
+<section class="form-section" id="inscription">
+  <div class="form-intro">
+    <div class="eyebrow" data-fr="Inscription" data-en="Registration">Inscription</div>
+    <h2>
+      <span data-fr="Réservez votre place à l'" data-en="Reserve your spot at the ">Réservez votre place à l'</span><span class="accent">AGRO CONNECT DAY</span>
+    </h2>
+    <p data-fr="Remplissez le formulaire ci-dessous pour exprimer votre intérêt. Nos équipes vous recontacteront dans les plus brefs délais."
+       data-en="Fill out the form below to express your interest. Our teams will get back to you as soon as possible.">
+      Remplissez le formulaire ci-dessous pour exprimer votre intérêt. Nos équipes vous recontacteront dans les plus brefs délais.
+    </p>
   </div>
-</section>
 
-<!-- INFO STRIP -->
-<section class="info-strip">
-  <div class="info-grid">
-    <div class="info-item">
-      <div class="icon">🤝</div>
-      <h4 data-fr="Partenariat institutionnel" data-en="Institutional partnership">
-        Partenariat institutionnel
-      </h4>
-      <p data-fr="ANAPEC et FENAGRI unis pour soutenir l'emploi au Maroc."
-         data-en="ANAPEC and FENAGRI united to support employment in Morocco.">
-        ANAPEC et FENAGRI unis pour soutenir l'emploi au Maroc.
-      </p>
-    </div>
-    <div class="info-item">
-      <div class="icon">📋</div>
-      <h4 data-fr="Procédure simplifiée" data-en="Simplified procedure">
-        Procédure simplifiée
-      </h4>
-      <p data-fr="Un formulaire en 2 étapes pour exprimer votre intérêt."
-         data-en="A 2-step form to express your interest.">
-        Un formulaire en 2 étapes pour exprimer votre intérêt.
-      </p>
-    </div>
-    <div class="info-item">
-      <div class="icon">🌱</div>
-      <h4 data-fr="Inclusif & sectoriel" data-en="Inclusive & sectoral">
-        Inclusif & sectoriel
-      </h4>
-      <p data-fr="Ouvert à tous les secteurs avec un focus sur l'agro-alimentaire."
-         data-en="Open to all sectors with a focus on agri-food.">
-        Ouvert à tous les secteurs avec un focus sur l'agro-alimentaire.
-      </p>
+  <div class="form-wrap">
+    <div class="form-card">
+
+      <!-- Stepper -->
+      <div class="stepper">
+        <div class="step active" data-step="1">
+          <div class="step-num">1</div>
+          <div class="step-info">
+            <div class="step-label" data-fr="Étape 1" data-en="Step 1">Étape 1</div>
+            <div class="step-title" data-fr="Informations entreprise" data-en="Company information">Informations entreprise</div>
+          </div>
+        </div>
+        <div class="step" data-step="2">
+          <div class="step-num">2</div>
+          <div class="step-info">
+            <div class="step-label" data-fr="Étape 2" data-en="Step 2">Étape 2</div>
+            <div class="step-title" data-fr="Contact FENAGRI" data-en="FENAGRI contact">Contact FENAGRI</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-body">
+
+        <!-- ===== PAGE 1 ===== -->
+        <div class="form-page active" data-page="1">
+          <h3 data-fr="Informations sur l'entreprise" data-en="Company information">
+            Informations sur l'entreprise
+          </h3>
+          <p class="page-desc"
+             data-fr="Merci de renseigner les informations de votre entreprise. Les champs marqués d'un * sont obligatoires."
+             data-en="Please provide your company information. Fields marked with * are required.">
+            Merci de renseigner les informations de votre entreprise. Les champs marqués d'un * sont obligatoires.
+          </p>
+
+          <div class="form-grid">
+            <div class="field full">
+              <label for="entreprise" data-fr="Entreprise" data-en="Company">
+                Entreprise<span class="req">*</span>
+              </label>
+              <input type="text" id="entreprise" name="entreprise" required
+                     data-fr-placeholder="Nom de l'entreprise"
+                     data-en-placeholder="Company name"
+                     placeholder="Nom de l'entreprise" />
+            </div>
+
+            <div class="field">
+              <label for="contact-name" data-fr="Nom du contact entreprise" data-en="Company contact name">
+                Nom du contact entreprise<span class="req">*</span>
+              </label>
+              <input type="text" id="contact-name" name="contact-name" required
+                     data-fr-placeholder="Prénom et nom"
+                     data-en-placeholder="First and last name"
+                     placeholder="Prénom et nom" />
+            </div>
+
+            <div class="field">
+              <label for="contact-role" data-fr="Fonction du contact" data-en="Contact's job title">
+                Fonction du contact<span class="req">*</span>
+              </label>
+              <input type="text" id="contact-role" name="contact-role" required
+                     data-fr-placeholder="Ex : Directeur RH"
+                     data-en-placeholder="E.g. HR Director"
+                     placeholder="Ex : Directeur RH" />
+            </div>
+
+            <div class="field">
+              <label for="phone" data-fr="N° GSM ou Tél" data-en="Phone number">
+                N° GSM ou Tél<span class="req">*</span>
+              </label>
+              <input type="tel" id="phone" name="phone" required placeholder="+212 6 00 00 00 00" />
+            </div>
+
+            <div class="field">
+              <label for="email">Email<span class="req">*</span></label>
+              <input type="email" id="email" name="email" required placeholder="contact@entreprise.ma" />
+            </div>
+
+            <div class="field">
+              <label for="ville" data-fr="Ville" data-en="City">
+                Ville<span class="req">*</span>
+              </label>
+              <input type="text" id="ville" name="ville" required
+                     data-fr-placeholder="Ex : Casablanca"
+                     data-en-placeholder="E.g. Casablanca"
+                     placeholder="Ex : Casablanca" />
+            </div>
+
+            <div class="field">
+              <label for="region" data-fr="Région" data-en="Region">
+                Région<span class="req">*</span>
+              </label>
+              <select id="region" name="region" required>
+                <option value="" data-fr="-- Sélectionner --" data-en="-- Select --">-- Sélectionner --</option>
+                <option value="casablanca-settat">Casablanca-Settat</option>
+                <option value="rabat-sale-kenitra">Rabat-Salé-Kénitra</option>
+                <option value="fes-meknes">Fès-Meknès</option>
+                <option value="marrakech-safi">Marrakech-Safi</option>
+                <option value="tanger-tetouan">Tanger-Tétouan-Al Hoceima</option>
+                <option value="souss-massa">Souss-Massa</option>
+                <option value="oriental">L'Oriental</option>
+                <option value="beni-mellal-khenifra">Beni Mellal-Khénifra</option>
+                <option value="draa-tafilalet">Drâa-Tafilalet</option>
+                <option value="guelmim-oued-noun">Guelmim-Oued Noun</option>
+                <option value="laayoune-sakia">Laâyoune-Sakia El Hamra</option>
+                <option value="dakhla-oued-eddahab">Dakhla-Oued Ed Dahab</option>
+                <option value="autre" data-fr="Autre" data-en="Other">Autre</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="secteur" data-fr="Secteur d'activité" data-en="Sector">
+                Secteur d'activité<span class="req">*</span>
+              </label>
+              <select id="secteur" name="secteur" required>
+                <option value="" data-fr="-- Sélectionner --" data-en="-- Select --">-- Sélectionner --</option>
+                <option value="ntic" data-fr="NTIC / Offshoring" data-en="ICT / Offshoring">NTIC / Offshoring</option>
+                <option value="agriculture" data-fr="Agriculture" data-en="Agriculture">Agriculture</option>
+                <option value="construction" data-fr="Construction" data-en="Construction">Construction</option>
+                <option value="tourisme" data-fr="Tourisme" data-en="Tourism">Tourisme</option>
+                <option value="commerce" data-fr="Commerce et distribution" data-en="Trade and distribution">Commerce et distribution</option>
+                <option value="automobile" data-fr="Automobile" data-en="Automotive">Automobile</option>
+                <option value="textile" data-fr="Textile" data-en="Textile">Textile</option>
+                <option value="agroalimentaire" data-fr="Agroalimentaire" data-en="Agri-food">Agroalimentaire</option>
+                <option value="aeronautique" data-fr="Aéronautique" data-en="Aeronautics">Aéronautique</option>
+                <option value="enseignement" data-fr="Enseignement" data-en="Education">Enseignement</option>
+                <option value="sante" data-fr="Santé" data-en="Health">Santé</option>
+                <option value="artisanat" data-fr="Artisanat" data-en="Crafts">Artisanat</option>
+                <option value="autre" data-fr="Autre" data-en="Other">Autre</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label data-fr="Avez-vous des projets de recrutement à fin 2026 ?" data-en="Do you have recruitment plans by end of 2026?">
+                Avez-vous des projets de recrutement à fin 2026 ?<span class="req">*</span>
+              </label>
+              <div class="radio-group">
+                <div class="radio-option">
+                  <input type="radio" id="recrut-oui" name="recrutement" value="oui" required />
+                  <label for="recrut-oui" data-fr="Oui" data-en="Yes">Oui</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="recrut-non" name="recrutement" value="non" required />
+                  <label for="recrut-non" data-fr="Non" data-en="No">Non</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <div class="btn-spacer"></div>
+            <button class="btn btn-primary" id="next-btn" data-fr="Suivant →" data-en="Next →">
+              Suivant →
+            </button>
+          </div>
+        </div>
+
+        <!-- ===== PAGE 2 ===== -->
+        <div class="form-page" data-page="2">
+          <h3 data-fr="Contact FENAGRI" data-en="FENAGRI Contact">
+            Contact FENAGRI
+          </h3>
+          <p class="page-desc"
+             data-fr="Dernière étape : précisez si vous souhaitez être contacté par la FENAGRI et l'objet de votre demande."
+             data-en="Last step: indicate whether you wish to be contacted by FENAGRI and the purpose of your request.">
+            Dernière étape : précisez si vous souhaitez être contacté par la FENAGRI et l'objet de votre demande.
+          </p>
+
+          <div class="form-grid">
+            <div class="field full">
+              <label data-fr="Désirez-vous être contacté par la FENAGRI ?" data-en="Do you wish to be contacted by FENAGRI?">
+                Désirez-vous être contacté par la FENAGRI ?<span class="req">*</span>
+              </label>
+              <div class="radio-group">
+                <div class="radio-option">
+                  <input type="radio" id="contact-oui" name="contact-fenagri" value="oui" required />
+                  <label for="contact-oui" data-fr="Oui" data-en="Yes">Oui</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="contact-non" name="contact-fenagri" value="non" required />
+                  <label for="contact-non" data-fr="Non" data-en="No">Non</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="field full">
+              <label for="objet" data-fr="Objet du besoin de contact FENAGRI" data-en="Purpose of FENAGRI contact request">
+                Objet du besoin de contact FENAGRI<span class="req">*</span>
+              </label>
+              <select id="objet" name="objet" required>
+                <option value="" data-fr="-- Sélectionner --" data-en="-- Select --">-- Sélectionner --</option>
+                <option value="info" data-fr="Demande d'informations" data-en="Request for information">Demande d'informations</option>
+                <option value="offre" data-fr="Traitement d'une offre d'emploi" data-en="Job offer processing">Traitement d'une offre d'emploi</option>
+                <option value="contrats" data-fr="Gestion des contrats FENAGRI" data-en="Management of FENAGRI contracts">Gestion des contrats FENAGRI</option>
+                <option value="autre" data-fr="Autre (préciser)" data-en="Other (specify)">Autre (préciser)</option>
+              </select>
+            </div>
+
+            <div class="field full" id="autre-field" style="display:none;">
+              <label for="autre-precision" data-fr="Précisez" data-en="Please specify">
+                Précisez
+              </label>
+              <textarea id="autre-precision" name="autre-precision" rows="3"
+                        data-fr-placeholder="Décrivez votre besoin..."
+                        data-en-placeholder="Describe your need..."
+                        placeholder="Décrivez votre besoin..."></textarea>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-secondary" id="back-btn" data-fr="← Retour" data-en="← Back">
+              ← Retour
+            </button>
+            <div class="btn-spacer"></div>
+            <button class="btn btn-primary" id="submit-btn" data-fr="Soumettre ✓" data-en="Submit ✓">
+              Soumettre ✓
+            </button>
+          </div>
+        </div>
+
+        <!-- ===== SUCCESS ===== -->
+        <div class="form-page" data-page="3">
+          <div class="success-state">
+            <div class="success-icon">
+              <svg viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <h3 data-fr="Merci pour votre inscription !" data-en="Thank you for your registration!">
+              Merci pour votre inscription !
+            </h3>
+            <p data-fr="Votre demande a bien été transmise à la FENAGRI et l'ANAPEC. Nos équipes vous recontacteront dans les plus brefs délais."
+               data-en="Your request has been sent to FENAGRI and ANAPEC. Our teams will get back to you as soon as possible.">
+              Votre demande a bien été transmise à la FENAGRI et l'ANAPEC. Nos équipes vous recontacteront dans les plus brefs délais.
+            </p>
+            <button class="btn btn-secondary" id="restart-btn"
+                    data-fr="Soumettre une autre demande" data-en="Submit another request">
+              Soumettre une autre demande
+            </button>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>
@@ -1043,14 +1621,6 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-block">
-        <h5>ANAPEC</h5>
-        <p data-fr="Agence Nationale de Promotion de l'Emploi et des Compétences. Pour en savoir plus : "
-           data-en="National Agency for the Promotion of Employment and Skills. Learn more: ">
-          Agence Nationale de Promotion de l'Emploi et des Compétences. Pour en savoir plus :
-        </p>
-        <p><a href="https://www.anapec.org" target="_blank">www.anapec.org</a></p>
-      </div>
-      <div class="footer-block">
         <h5>FENAGRI</h5>
         <p data-fr="Fédération Nationale de l'Agro-alimentaire. Pour en savoir plus : "
            data-en="National Federation of Agri-food Industries. Learn more: ">
@@ -1058,9 +1628,17 @@
         </p>
         <p><a href="https://www.fenagri.org" target="_blank">www.fenagri.org</a></p>
       </div>
+      <div class="footer-block">
+        <h5>ANAPEC</h5>
+        <p data-fr="Agence Nationale de Promotion de l'Emploi et des Compétences. Pour en savoir plus : "
+           data-en="National Agency for the Promotion of Employment and Skills. Learn more: ">
+          Agence Nationale de Promotion de l'Emploi et des Compétences. Pour en savoir plus :
+        </p>
+        <p><a href="https://www.anapec.org" target="_blank">www.anapec.org</a></p>
+      </div>
     </div>
     <div class="footer-bottom">
-      © 2026 · ANAPEC × FENAGRI · <span data-fr="Tous droits réservés" data-en="All rights reserved">Tous droits réservés</span>
+      © 2026 · FENAGRI × ANAPEC · <span data-fr="Tous droits réservés" data-en="All rights reserved">Tous droits réservés</span>
     </div>
   </div>
 </footer>
@@ -1074,12 +1652,10 @@
     currentLang = lang;
     document.documentElement.lang = lang;
 
-    // Update text content
     document.querySelectorAll('[data-fr]').forEach(el => {
       const text = el.getAttribute('data-' + lang);
       if (text !== null) {
-        // Use innerHTML for the <em> in the H1
-        if (el.tagName === 'H1' || text.includes('<')) {
+        if (text.includes('<') || el.tagName === 'P' && el.innerHTML.includes('<strong>')) {
           el.innerHTML = text;
         } else {
           el.textContent = text;
@@ -1087,13 +1663,11 @@
       }
     });
 
-    // Update placeholders
     document.querySelectorAll('[data-fr-placeholder]').forEach(el => {
       const ph = el.getAttribute('data-' + lang + '-placeholder');
       if (ph) el.placeholder = ph;
     });
 
-    // Update active button
     langButtons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
   }
 
@@ -1118,7 +1692,7 @@
       s.classList.toggle('active', sn == num);
       s.classList.toggle('completed', sn < num);
     });
-    window.scrollTo({ top: document.querySelector('.form-section').offsetTop - 100, behavior: 'smooth' });
+    window.scrollTo({ top: document.querySelector('.form-section').offsetTop - 80, behavior: 'smooth' });
   }
 
   function validatePage(num) {
@@ -1131,7 +1705,7 @@
       if (field.type === 'radio') {
         radioGroups.add(field.name);
       } else if (!field.value.trim()) {
-        field.style.borderColor = 'var(--red)';
+        field.style.borderColor = '#dc2626';
         valid = false;
         setTimeout(() => field.style.borderColor = '', 2500);
       }
@@ -1142,7 +1716,7 @@
       if (!checked) {
         valid = false;
         page.querySelectorAll(`input[name="${name}"]`).forEach(r => {
-          r.nextElementSibling.style.borderColor = 'var(--red)';
+          r.nextElementSibling.style.borderColor = '#dc2626';
           setTimeout(() => r.nextElementSibling.style.borderColor = '', 2500);
         });
       }
@@ -1159,7 +1733,6 @@
 
   submitBtn.addEventListener('click', () => {
     if (validatePage(2)) {
-      // In real use this would POST to a server
       showPage(3);
     }
   });
